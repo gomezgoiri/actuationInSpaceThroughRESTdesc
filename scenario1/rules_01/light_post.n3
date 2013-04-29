@@ -1,0 +1,38 @@
+@prefix : <http://example.org/light_scen#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/>.
+@prefix sweet: <http://sweet.jpl.nasa.gov/>.
+@prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+
+
+{
+  ?outputvalue a ssn:ObservationValue ;
+	      dul:hasDataValue ?val .
+}
+
+=>
+
+{
+
+  _:request http:methodName "POST";
+            http:requestURI "/light/";
+            http:body ?outputvalue;
+            http:resp [ http:body ?outputvalue ].
+
+  _:lamp a dbpedia:Lamp .
+
+  ?light a ssn:Observation ;
+     ssn:observedBy	_:lamp;
+     ssn:observedProperty	sweet:Light ;
+     ssn:observationResult	_:sensoroutput .
+
+ _:sensoroutput a ssn:SensorOutput ;
+               ssn:hasValue _:outputvalue .
+
+  ?outputvalue a ssn:ObservationValue ;
+               dul:isClassifiedBy  ucum:lux ;
+               dul:hasDataValue ?val .
+}.

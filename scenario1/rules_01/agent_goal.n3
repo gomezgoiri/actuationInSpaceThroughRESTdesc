@@ -1,0 +1,12 @@
+# This is the goal for an agent: given a local image (agent_image.n3), obtain its thumbnail.
+
+@prefix : <http://example.org/light_scen#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+{
+  ?subject ?predicate ?object .                    # question: all involved triples
+}
+=>
+{
+  ?subject ?predicate ?object.                    # answer: all involved triples
+}.
