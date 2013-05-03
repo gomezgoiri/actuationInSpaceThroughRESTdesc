@@ -4,6 +4,7 @@ Created on Apr 30, 2013
 @author: tulvur
 '''
 
+from StringIO import StringIO
 from rdflib import Graph, Namespace
 
 class Agent(object):
@@ -13,18 +14,29 @@ class Agent(object):
     dbpedia_namespace = Namespace("http://dbpedia.org/ontology/")
     
     def __init__(self, file_path):
+        n3_ordered = self._order_triples_alphabetically(file_path)
         self.g = Graph()
-        self.g.parse(file_path, format="n3")
-        #print self.g.serialize(format="n3")
-        #self.get_goal()
-        print self.delete_blank_nodes(file_path)
+        #self.g.parse(file_path, format="n3")
+        self.g.parse(StringIO(n3_ordered), format="n3")
+        print self.g.serialize(format="n3")
     
-    def delete_blank_nodes(self, file_path):
+    def _order_triples_alphabetically(self, file_path):        
         with open (file_path, "r") as myfile:
-            data = myfile.read().replace('_:sk', 'http://anon/')
-            print data
-        
-    def get_requests(self):
+            ret = ""
+            to_order = []
+            for line in myfile.read().splitlines(): # .sort()
+                if line.startswith("@prefix"):
+                    ret = "%s\n%s" % (ret, line)
+                elif line.startswith("#"):
+                    pass # ignore
+                else:
+                    to_order.append(line)
+            
+            for line in sorted(to_order):
+                ret = "%s\n%s" % (ret, line)
+            return ret
+    
+    def get_requests_in_order(self):
         t = self.g.triples((None, Agent.http_namespace["requestURI"], None ) )
         for trip in t:
             print trip
