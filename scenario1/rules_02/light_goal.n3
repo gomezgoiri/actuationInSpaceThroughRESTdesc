@@ -1,4 +1,5 @@
 @prefix : <http://example.org/light_scen#>.
+@prefix http: <http://www.w3.org/2011/http#>.
 @prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
 @prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
 @prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
@@ -8,13 +9,12 @@
 #  ?light a ssn:Observation ;
 #	 ssn:observedProperty  sweet:Light ;
 #	 ssn:observationResult  ?sensoroutput .
-
 #  ?sensoroutput ssn:hasValue ?outputvalue .
-
-  ?outputvalue  dul:hasDataValue  :t19 .           # goal: Light observation with value 19
-  ?subject ?predicate ?object .                    # question: all involved triples
+  ?outputvalue  dul:hasDataValue  18 .           # goal: Light observation with value 19
+#  ?subject ?predicate ?object .                    # question: all involved triples
 }
 =>
 {
-  ?subject ?predicate ?object .                    # answer: all involved triples
+  ?outputvalue  dul:hasDataValue  18 . 
+#  ?subject ?predicate ?object .                    # answer: all involved triples
 }.

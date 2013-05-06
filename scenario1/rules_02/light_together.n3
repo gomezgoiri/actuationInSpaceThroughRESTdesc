@@ -31,7 +31,7 @@
             
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
-               dul:hasDataValue :t19 .            
+               dul:hasDataValue 19 .            
                
   _:sensoroutput a ssn:SensorOutput ;
                  ssn:hasValue _:outputvalue .
@@ -59,7 +59,7 @@
             
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
-               dul:hasDataVal1ue :t18 .            
+               dul:hasDataValue 18 .            
                
   _:sensoroutput a ssn:SensorOutput ;
                  ssn:hasValue _:outputvalue .
