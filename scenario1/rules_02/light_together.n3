@@ -60,7 +60,7 @@
             
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
-               dul:hasDataValue 18 .            
+               dul:hasDataValue 8 .            
                
   _:sensoroutput a ssn:SensorOutput ;
                  ssn:hasValue _:outputvalue .
