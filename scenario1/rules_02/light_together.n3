@@ -13,6 +13,8 @@
 :lamp a dbpedia:Lamp .
 :light  a  ssn:Observation ;
           ssn:observedProperty  sweet:Light .
+:thermometer  a  ssn:Observation ;
+          ssn:observedProperty  sweet:Temperature .
 :friend  a  foaf:Friend .
 
 
@@ -38,7 +40,6 @@
 
   ?light a ssn:Observation ;
      ssn:observedBy	:lamp;
-     ssn:observedProperty	sweet:Light ;
      ssn:observationResult	_:sensoroutput .
 }.
 
@@ -66,7 +67,33 @@
 
   ?light a ssn:Observation ;
      ssn:observedBy	:lamp;
-     ssn:observedProperty	sweet:Light ;
+     ssn:observationResult	_:sensoroutput .
+}.
+
+
+
+# Service 3: temperature
+
+{
+  ?temperature  a  ssn:Observation ;
+          ssn:observedProperty  sweet:Temperature .
+}
+=>
+{
+  _:request http:methodName "GET";
+            http:requestURI "/temperature/";
+            http:body ?temperature;
+            http:resp [ http:body _:outputvalue ].
+            
+  _:outputvalue a ssn:ObservationValue ;
+               dul:isClassifiedBy  ucum:celsius ;
+               dul:hasDataValue 19 .            
+               
+  _:sensoroutput a ssn:SensorOutput ;
+                 ssn:hasValue _:outputvalue .
+
+  ?temperature a ssn:Observation ;
+     ssn:observedBy	:thermometer;
      ssn:observationResult	_:sensoroutput .
 }.
 

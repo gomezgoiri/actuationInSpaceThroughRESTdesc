@@ -6,15 +6,15 @@
 @prefix sweet: <http://sweet.jpl.nasa.gov/>.
 
 {
-#  ?light a ssn:Observation ;
-#	 ssn:observedProperty  sweet:Light ;
-#	 ssn:observationResult  ?sensoroutput .
-#  ?sensoroutput ssn:hasValue ?outputvalue .
-  ?outputvalue  dul:hasDataValue  18 .           # goal: Light observation with value 19
+  ?light a ssn:Observation ;
+	 ssn:observedProperty  sweet:Light ;
+	 ssn:observationResult  ?sensoroutput .
+  ?sensoroutput ssn:hasValue ?outputvalue .
+  ?outputvalue  dul:hasDataValue  19 .           # goal: Light observation with value 19
 #  ?subject ?predicate ?object .                    # question: all involved triples
 }
 =>
 {
-  ?outputvalue  dul:hasDataValue  18 . 
+  ?outputvalue  dul:hasDataValue  19 . 
 #  ?subject ?predicate ?object .                    # answer: all involved triples
 }.
