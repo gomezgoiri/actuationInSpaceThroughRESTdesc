@@ -6,15 +6,10 @@
 @prefix sweet: <http://sweet.jpl.nasa.gov/>.
 
 {
-  ?light a ssn:Observation ;
-	 ssn:observedProperty  sweet:Light ;
-	 ssn:observationResult  ?sensoroutput .
-  ?sensoroutput ssn:hasValue ?outputvalue .
-  ?outputvalue  dul:hasDataValue  19 .           # goal: Light observation with value 19
-#  ?subject ?predicate ?object .                    # question: all involved triples
+  ?outputvalue  dul:hasDataValue  19 .           # goal: observation with value 19
+  # since they are not filtered, it will return both light and temperature services
 }
 =>
 {
-  ?outputvalue  dul:hasDataValue  19 . 
-#  ?subject ?predicate ?object .                    # answer: all involved triples
+  ?outputvalue  dul:hasDataValue  19 .
 }.
