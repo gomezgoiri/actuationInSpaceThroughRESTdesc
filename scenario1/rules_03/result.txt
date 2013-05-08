@@ -1,5 +1,5 @@
 #Processed by Id: euler.yap 6067 2013-03-06 16:36:51Z josd
-#eye light_together.n3 --query light_goal.n3
+#eye facts.n3 light1_rule.n3 light2_rule.n3 temperature_rule.n3 unrelated_rule.n3 --query light_goal.n3
 
 @prefix : <http://example.org/light_scen#>.
 @prefix http: <http://www.w3.org/2011/http#>.
@@ -24,9 +24,9 @@
 
 _:lemma1 a r:Inference; r:gives {_:sk2 dul:hasDataValue 19}; r:evidence (
   [ a r:Extraction; r:gives {:light a ssn:Observation};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]
   [ a r:Extraction; r:gives {:light ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]
   _:lemma2
   _:lemma3
   _:lemma4);
@@ -42,9 +42,9 @@ _:lemma1 a r:Inference; r:gives {_:sk2 dul:hasDataValue 19}; r:evidence (
 
 _:lemma2 a r:Inference; r:gives {:light ssn:observationResult _:sk3}; r:evidence (
   [ a r:Extraction; r:gives {:light a ssn:Observation};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]
   [ a r:Extraction; r:gives {:light ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#light"]];
   r:rule [ a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4. {var:x0 a ssn:Observation.
     var:x0 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>} => {var:x1 http:methodName "POST".
@@ -60,13 +60,13 @@ _:lemma2 a r:Inference; r:gives {:light ssn:observationResult _:sk3}; r:evidence
     var:x0 a ssn:Observation.
     var:x0 ssn:observedBy :lamp.
     var:x0 ssn:observationResult var:x4}};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]].
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light1_rule.n3>]].
 
 _:lemma3 a r:Inference; r:gives {_:sk3 ssn:hasValue _:sk2}; r:evidence (
   [ a r:Extraction; r:gives {:light a ssn:Observation};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]
   [ a r:Extraction; r:gives {:light ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#light"]];
   r:rule [ a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4. {var:x0 a ssn:Observation.
     var:x0 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>} => {var:x1 http:methodName "POST".
@@ -82,13 +82,13 @@ _:lemma3 a r:Inference; r:gives {_:sk3 ssn:hasValue _:sk2}; r:evidence (
     var:x0 a ssn:Observation.
     var:x0 ssn:observedBy :lamp.
     var:x0 ssn:observationResult var:x4}};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]].
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light1_rule.n3>]].
 
 _:lemma4 a r:Inference; r:gives {_:sk2 dul:hasDataValue 19}; r:evidence (
   [ a r:Extraction; r:gives {:light a ssn:Observation};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]
   [ a r:Extraction; r:gives {:light ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/facts.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#light"]];
   r:rule [ a r:Extraction; r:gives {@forAll var:x0. @forSome var:x1, var:x2, var:x3, var:x4. {var:x0 a ssn:Observation.
     var:x0 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>} => {var:x1 http:methodName "POST".
@@ -104,7 +104,7 @@ _:lemma4 a r:Inference; r:gives {_:sk2 dul:hasDataValue 19}; r:evidence (
     var:x0 a ssn:Observation.
     var:x0 ssn:observedBy :lamp.
     var:x0 ssn:observationResult var:x4}};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light_together.n3>]].
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/light1_rule.n3>]].
 
-#ENDS 0.096 [sec] TC=5 TP=14 BC=0 BP=6 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.104 [sec] TC=5 TP=14 BC=0 BP=6 PM=0 CM=0 FM=0 AM=0
 

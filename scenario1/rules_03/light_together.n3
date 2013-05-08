@@ -8,6 +8,8 @@
 @prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
+# All the facts and rules together.
+# This is easier to edit, but more difficult to interpret where the proofs come from.
 
 # Description of the Lamp
 :lamp a dbpedia:Lamp .
