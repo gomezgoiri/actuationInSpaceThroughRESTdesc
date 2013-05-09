@@ -1,0 +1,34 @@
+#Processed by Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+#eye --nope ../rules_03/result.txt --query rest_bindings.n3
+
+@prefix : <http://example.org/light_scen#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/>.
+@prefix sweet: <http://sweet.jpl.nasa.gov/>.
+@prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix var: <http://localhost/var#>.
+@prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
+@prefix r: <http://www.w3.org/2000/10/swap/reason#>.
+@prefix n3: <http://www.w3.org/2004/06/rei#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+
+_:lemma1_1 r:var "http://localhost/var#x0".
+_:lemma1_1 r:bound "http://example.org/light_scen#light".
+_:lemma1_1 r:var "http://localhost/var#x1".
+_:lemma1_1 r:bound r:Existential.
+_:lemma1_1 r:bound "_:sk3".
+_:lemma1_1 r:var "http://localhost/var#x2".
+_:lemma1_1 r:bound "_:sk2".
+_:lemma2_1 r:var "http://localhost/var#x0".
+_:lemma2_1 r:bound "http://example.org/light_scen#light".
+_:lemma3_1 r:var "http://localhost/var#x0".
+_:lemma3_1 r:bound "http://example.org/light_scen#light".
+_:lemma4_1 r:var "http://localhost/var#x0".
+_:lemma4_1 r:bound "http://example.org/light_scen#light".
+
+#ENDS 0.096 [sec] TC=8 TP=16 BC=0 BP=9 PM=0 CM=0 FM=0 AM=0
+
