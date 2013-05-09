@@ -1,6 +1,7 @@
 #Processed by Id: euler.yap 6067 2013-03-06 16:36:51Z josd
-#eye ../rules_03/result.txt --query lemmas.n3
+#eye --nope ./tmp_unblank.n3 --query lemmas.n3
 
+@prefix fake: <http://fake#>.
 @prefix : <http://example.org/light_scen#>.
 @prefix http: <http://www.w3.org/2011/http#>.
 @prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
@@ -15,23 +16,7 @@
 @prefix r: <http://www.w3.org/2000/10/swap/reason#>.
 @prefix n3: <http://www.w3.org/2004/06/rei#>.
 
-[ a r:Proof, r:Conjunction;
-  r:component _:lemma1;
+_:e1 r:component fake:lemma1.
 
-  r:gives {
-    @forSome var:e1, var:lemma1_1. var:e1 r:component var:lemma1_1.
-  }].
-
-_:lemma1 a r:Inference; r:gives {@forSome var:e1, var:lemma1_1. var:e1 r:component var:lemma1_1}; r:evidence (
-  [ a r:Extraction; r:gives {@forSome var:e1. var:e1 a r:Proof};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/result.txt>]]
-  [ a r:Extraction; r:gives {@forSome var:e1, var:lemma1_1. var:e1 r:component var:lemma1_1};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_03/result.txt>]]);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#e1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#lemma1_1"]];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1. {var:x0 a r:Proof.
-    var:x0 r:component var:x1} => {var:x0 r:component var:x1}};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/proof_interpretation/lemmas.n3>]].
-
-#ENDS 0.108 [sec] TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.100 [sec] TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
 

@@ -1,6 +1,7 @@
 #Processed by Id: euler.yap 6067 2013-03-06 16:36:51Z josd
-#eye --nope ../rules_03/result.txt --query rest_bindings.n3
+#eye --nope ./tmp_unblank.n3 --query rest_bindings.n3
 
+@prefix fake: <http://fake#>.
 @prefix : <http://example.org/light_scen#>.
 @prefix http: <http://www.w3.org/2011/http#>.
 @prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
@@ -16,19 +17,19 @@
 @prefix n3: <http://www.w3.org/2004/06/rei#>.
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
 
-_:lemma1_1 r:var "http://localhost/var#x0".
-_:lemma1_1 r:bound "http://example.org/light_scen#light".
-_:lemma1_1 r:var "http://localhost/var#x1".
-_:lemma1_1 r:bound r:Existential.
-_:lemma1_1 r:bound "_:sk3".
-_:lemma1_1 r:var "http://localhost/var#x2".
-_:lemma1_1 r:bound "_:sk2".
-_:lemma2_1 r:var "http://localhost/var#x0".
-_:lemma2_1 r:bound "http://example.org/light_scen#light".
-_:lemma3_1 r:var "http://localhost/var#x0".
-_:lemma3_1 r:bound "http://example.org/light_scen#light".
-_:lemma4_1 r:var "http://localhost/var#x0".
-_:lemma4_1 r:bound "http://example.org/light_scen#light".
+fake:lemma1 r:var "http://localhost/var#x0".
+fake:lemma1 r:bound "http://example.org/light_scen#light".
+fake:lemma1 r:var "http://localhost/var#x1".
+fake:lemma1 r:bound r:Existential.
+fake:lemma1 r:bound "_:sk3".
+fake:lemma1 r:var "http://localhost/var#x2".
+fake:lemma1 r:bound "_:sk2".
+fake:lemma2 r:var "http://localhost/var#x0".
+fake:lemma2 r:bound "http://example.org/light_scen#light".
+fake:lemma3 r:var "http://localhost/var#x0".
+fake:lemma3 r:bound "http://example.org/light_scen#light".
+fake:lemma4 r:var "http://localhost/var#x0".
+fake:lemma4 r:bound "http://example.org/light_scen#light".
 
-#ENDS 0.096 [sec] TC=8 TP=16 BC=0 BP=9 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.100 [sec] TC=8 TP=16 BC=0 BP=9 PM=0 CM=0 FM=0 AM=0
 

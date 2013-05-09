@@ -1,9 +1,16 @@
 #! /bin/bash
 
-java -jar ../../Euler.jar ../rules_03/result.txt --query lemmas.n3 > lemmas.txt
+export INPUT_RESULT_FILE=../rules_03/result.txt
+export TEMPORARY_FILE=./tmp_unblank.n3
 
-java -jar ../../Euler.jar --nope ../rules_03/result.txt --query lemma_precedences.n3 > precedences.txt
+python unblank_lemmas.py -i $INPUT_RESULT_FILE -o $TEMPORARY_FILE
 
-java -jar ../../Euler.jar --nope ../rules_03/result.txt --query rest_bindings.n3 > bindings.txt
+java -jar ../../Euler.jar --nope $TEMPORARY_FILE --query lemmas.n3 > lemmas.txt
 
-java -jar ../../Euler.jar --nope ../rules_03/result.txt --query rest_services.n3 > services.txt
+java -jar ../../Euler.jar --nope $TEMPORARY_FILE --query lemma_precedences.n3 > precedences.txt
+
+java -jar ../../Euler.jar --nope $TEMPORARY_FILE --query rest_bindings.n3 > bindings.txt
+
+java -jar ../../Euler.jar --nope $TEMPORARY_FILE --query rest_services.n3 > services.txt
+
+rm tmp_unblank.n3
