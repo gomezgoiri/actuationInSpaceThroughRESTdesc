@@ -5,14 +5,14 @@ Created on Apr 30, 2013
 '''
 
 import re
-from rdflib import Graph, Namespace, URIRef
-from StringIO import StringIO
+from optparse import OptionParser
+from rdflib import Graph, Namespace
 import networkx as nx
 import matplotlib.pyplot as plt
 
 r_ns = Namespace("http://www.w3.org/2000/10/swap/reason#")
 
-# To be used with the result of "proof_interpretation/lemma_precedences.n3"
+# To be used with "lemma_precedences.txt"
 class LemmaPrecedencesGraph(object):   
     
     def __init__(self, file_path):
@@ -28,11 +28,11 @@ class LemmaPrecedencesGraph(object):
             data= re.sub('_:sk(?P<num>\d+)', '<http://anon/\g<num>>', myfile.read())
             return data
     
-    def print_graph(self, output_file="/tmp/lemma_precedences.png"):
-        nx.draw( self.create_graph(output_file) )  # networkx draw()
+    def print_graph(self, output_file):
+        nx.draw( self.create_graph() )  # networkx draw()
         plt.savefig(output_file)
     
-    def create_graph(self, output_file="/tmp/lemma_precedences.png"):
+    def create_graph(self):
         graph = nx.Graph()
         for t in self.rdf_graph.triples((None, r_ns.because, None)):
             t0 = str(t[0])
@@ -48,8 +48,15 @@ class LemmaPrecedencesGraph(object):
         print(nx.shortest_path(g, source="http://anon/0", target="http://anon/3"))
         
 
-if __name__ == '__main__':    
-    rg = LemmaPrecedencesGraph("../../proof_interpretation/precedences.txt")
-    rg.print_graph()
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option("-i", "--input", dest="input", default="../../../files/precedences.txt",
+                      help="File to process")
+    parser.add_option("-o", "--output", dest="output", default="/tmp",
+                      help="Output folder where the image will be written.")
+    (options, args) = parser.parse_args()
+    
+    rg = LemmaPrecedencesGraph( options.input )
+    rg.print_graph( output_file = options.output + "/lemma_precedences.png" )
     
     #rg._get_shortest_path( goal = (URIRef("file:///home/tulvur/Downloads/test/image_ex/myphoto.jpg"), dbpedia_namespace["thumbnail"], None))
