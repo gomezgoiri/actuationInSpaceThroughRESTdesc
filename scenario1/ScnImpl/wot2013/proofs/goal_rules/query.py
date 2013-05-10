@@ -25,9 +25,8 @@ class QueryExecutor(object):
         with open (output_file_path, "w") as output_file:
             output_file.write( self._execute_query(query_file) )
     
-    def execute_and_show(self, query_file):        
-        if self.output_file_path is None:
-            print self._execute_query(query_file)
+    def execute_and_show(self, query_file):
+        print self._execute_query(query_file)
 
 
 if __name__ == '__main__':
@@ -38,7 +37,7 @@ if __name__ == '__main__':
                       help = "File with the N3QL goal")
     parser.add_option("-o", "--output", dest = "output", default=None,
                       help = "File where the results will be written. If no results are provided the result will be shown in the screen.")
-    parser.add_option("-e", "--euler", dest = "euler", euler_path='../../../../../',
+    parser.add_option("-e", "--euler", dest = "euler", default='../../../../../',
                       help = "Path to Euler.jar")
     (options, args) = parser.parse_args()
 
