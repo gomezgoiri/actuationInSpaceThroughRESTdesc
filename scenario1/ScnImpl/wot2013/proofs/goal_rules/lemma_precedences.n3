@@ -15,19 +15,14 @@
 
 { # Analogy: SPARQL WHERE
   ?lemma a r:Inference ;
-	  r:rule ?rule ;
-	  r:binding ?binding .
-  ?rule r:gives ?gives . # sacarlo del because o parseando directamente el fichero?
-  ?binding r:variable ?blank_var .
-  ?blank_var ?pvar ?var .
-  ?binding r:boundTo ?blank_bound .
-  ?blank_bound ?pbound ?bound .
+	  r:evidence ?evidences .
+  ?evidence list:in ?evidences .
+  ?evidence a r:Inference .
+ 
 }
 =>
 { # Analogy: SPARQL CONSTRUCT
-  ?rule r:gives ?gives .
-  ?lemma r:var ?var .
-  ?lemma r:bound ?bound .
+  ?lemma r:because ?evidence .
 }.
 
 
