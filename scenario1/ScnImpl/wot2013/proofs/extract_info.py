@@ -25,8 +25,10 @@ class UsefulInformationExtractor(object):
         qe.execute_and_save( path_to_goals + "/lemma_precedences.n3", self.output_folder + "/precedences.txt" )
         qe.execute_and_save( path_to_goals + "/rest_bindings.n3", self.output_folder + "/bindings.txt" )
         qe.execute_and_save( path_to_goals + "/rest_services.n3", self.output_folder + "/services.txt" )
-        
         remove(tmp_file)
+        
+        qe = QueryExecutor( self.output_folder + "/services.txt", self.euler_path )
+        qe.execute_and_save( path_to_goals + "/invocation_rules.n3", self.output_folder + "/invocations.txt" )
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 r_ns = Namespace("http://www.w3.org/2000/10/swap/reason#")
 
 # To be used with "lemma_precedences.txt"
-class LemmaPrecedencesGraph(object):   
+class LemmaPrecedencesGraph(object):
     
     def __init__(self, file_path):
         self.rdf_graph = Graph()
