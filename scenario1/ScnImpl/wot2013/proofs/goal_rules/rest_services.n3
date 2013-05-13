@@ -1,5 +1,6 @@
 @prefix : <http://example.org/light_scen#>.
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
 @prefix http: <http://www.w3.org/2011/http#>.
 @prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
 @prefix dbpedia: <http://dbpedia.org/resource/>.
@@ -37,9 +38,23 @@
 { # Analogy: SPARQL WHERE
   ?lemma a r:Inference ;
 	  r:rule ?rule .
-  ?rule r:gives ?gives .
+  ?rule r:gives {
+    ?expr => ?implication .
+  }.
+  
+  ?implication log:includes {
+  	?rest http:requestURI ?request_uri ;
+  		  http:methodName ?method ;
+  		  http:body ?body .
+  } .
 }
 =>
 { # Analogy: SPARQL CONSTRUCT
-  ?lemma r:consumes ?gives .
+  ?lemma http:request {
+  	 # if I put the ?expr part in the "CONSTRUCT" the var:x0 is not "blankized" (to _:x0)
+  	 #?expr => ?implication .
+  	?rest http:requestURI ?request_uri ;
+  		  http:methodName ?method ;
+  		  http:body ?body .
+  } .
 }.

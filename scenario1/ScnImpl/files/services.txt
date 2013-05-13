@@ -16,11 +16,11 @@
 @prefix r: <http://www.w3.org/2000/10/swap/reason#>.
 @prefix n3: <http://www.w3.org/2004/06/rei#>.
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
 
-fake:lemma1 r:consumes {{?x2 dul:hasDataValue 19 . ?x0 a ssn:Observation. ?x1 ssn:hasValue ?x2. ?x0 ssn:observationResult ?x1. ?x0 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>} => {?x2 dul:hasDataValue 19}}.
-fake:lemma2 r:consumes {{?x0 a ssn:Observation. ?x0 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>} => {_:sk0 dul:hasDataValue 19 . _:sk0 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>. ?x0 a ssn:Observation. _:sk0 a ssn:ObservationValue. _:sk1 a ssn:SensorOutput. _:sk1 ssn:hasValue _:sk0. ?x0 ssn:observationResult _:sk1. ?x0 ssn:observedBy :lamp. _:sk2 http:body ?x0. _:sk3 http:body _:sk0. _:sk2 http:methodName "POST". _:sk2 http:requestURI "/light1/". _:sk2 http:resp _:sk3}}.
-fake:lemma3 r:consumes {{?x0 a ssn:Observation. ?x0 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>} => {_:sk4 dul:hasDataValue 19 . _:sk4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>. ?x0 a ssn:Observation. _:sk4 a ssn:ObservationValue. _:sk5 a ssn:SensorOutput. _:sk5 ssn:hasValue _:sk4. ?x0 ssn:observationResult _:sk5. ?x0 ssn:observedBy :lamp. _:sk6 http:body ?x0. _:sk7 http:body _:sk4. _:sk6 http:methodName "POST". _:sk6 http:requestURI "/light1/". _:sk6 http:resp _:sk7}}.
-fake:lemma4 r:consumes {{?x0 a ssn:Observation. ?x0 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>} => {_:sk8 dul:hasDataValue 19 . _:sk8 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>. ?x0 a ssn:Observation. _:sk8 a ssn:ObservationValue. _:sk9 a ssn:SensorOutput. _:sk9 ssn:hasValue _:sk8. ?x0 ssn:observationResult _:sk9. ?x0 ssn:observedBy :lamp. _:sk10 http:body _:sk8. _:sk11 http:body ?x0. _:sk11 http:methodName "POST". _:sk11 http:requestURI "/light1/". _:sk11 http:resp _:sk10}}.
+fake:lemma2 http:request {_:sk0 http:requestURI "/light1/". _:sk0 http:methodName "POST". _:sk0 http:body _:x0}.
+fake:lemma3 http:request {_:sk1 http:requestURI "/light1/". _:sk1 http:methodName "POST". _:sk1 http:body _:x0}.
+fake:lemma4 http:request {_:sk2 http:requestURI "/light1/". _:sk2 http:methodName "POST". _:sk2 http:body _:sk3}.
 
-#ENDS 0.076 [sec] TC=4 TP=8 BC=0 BP=5 PM=0 CM=0 FM=0 AM=0
+#ENDS 0.104 [sec] TC=3 TP=6 BC=0 BP=4 PM=0 CM=0 FM=0 AM=0
 

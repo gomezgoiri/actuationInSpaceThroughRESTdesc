@@ -16,11 +16,12 @@
 
 
 { # Analogy: SPARQL WHERE
-  ?lemma r:consumes {
-    ?expr => ?implication .
-  }.
+  ?lemma http:request {
+   ?expr => ?implication .
+  } .
+  ?implication log:includes { ?s ?p ?o . } .
 }
 =>
 { # Analogy: SPARQL CONSTRUCT
-  ?expr => ?implication .
+  	?s ?p ?o .
 }.
