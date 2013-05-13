@@ -29,11 +29,17 @@ class LemmaPrecedencesGraph(object):
             return data
     
     def print_graph(self, output_file):
-        nx.draw( self.create_graph() )  # networkx draw()
+        # from http://networkx.github.io/documentation/latest/examples/drawing/edge_colormap.html
+        g = self.create_graph()
+        pos = nx.spring_layout(g)
+        colors = '#6aaed6' #range(len(g.edges()))
+        nx.draw( g,
+                 pos, node_size=0, alpha=0.4, edge_color=colors, node_color='#A0CBE2', edge_cmap=plt.cm.Blues, width=2) #, node_color='#A0CBE2' , with_labels=False)
         plt.savefig(output_file)
     
     def create_graph(self):
-        graph = nx.Graph()
+        #graph = nx.Graph()
+        graph = nx.DiGraph()
         for t in self.rdf_graph.triples((None, r_ns.because, None)):
             t0 = str(t[0])
             t2 = str(t[2])

@@ -51,10 +51,10 @@
 =>
 { # Analogy: SPARQL CONSTRUCT
   ?lemma http:request {
-  	 # if I put the ?expr part in the "CONSTRUCT" the var:x0 is not "blankized" (to _:x0)
-  	 #?expr => ?implication .
-  	?rest http:requestURI ?request_uri ;
-  		  http:methodName ?method ;
-  		  http:body ?body .
+  	 ?expr => ?implication .
+  	# Directly extracting it, the var:x0 is "blankized" to _:x0 (I don't know why :-S)
+  	#?rest http:requestURI ?request_uri ;
+  	#	  http:methodName ?method ;
+  	#	  http:body ?body .
   } .
 }.
