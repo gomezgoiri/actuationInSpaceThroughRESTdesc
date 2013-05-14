@@ -8,7 +8,7 @@
 @prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix frap: <http://purl.org/frap/>.
-@prefix op: <http://www.w3.org/2007/rif-builtin-predicate#>.
+@prefix op: <http://www.w3.org/2000/10/swap/math#>.
 @prefix lookfor: <http://pending.of/search/>.
 
 
@@ -21,33 +21,36 @@
          dul:hasLocation ?room .
 
   ?light_snr1 a ssn:Sensor;
-              ssn:observes sweet:Light ,
+              ssn:observes sweet:Light ;
               dul:hasLocation ?room .
   
-  ?light a  ssn:Observation, lookfor:LastValue ; # use a rule for that!
+  ?light #a  ssn:Observation ;
+         a lookfor:LastValue ; # use a rule for that!
          ssn:observedProperty  sweet:Light ;
          ssn:observedBy ?light_snr1 ;
-         ssn:observationResult [
-             ssn:hasValue [
-                 dul:hasDataValue ?last_value .
-             ] .
-         ] .
+         ssn:observationResult ?so .
+     
+   ?so a ssn:SensorOutput .
+
+  ?ov #a ssn:ObservationValue ;
+      dul:isClassifiedBy  ucum:lux ;
+      dul:hasDataValue ?last_value .
   
   
   # TODO define that the datavalue should be sensoroutput
   ?preference a frap:Preference ;
-              frap:about [
-                 a frap:Pattern, ssn:ObservationValue;
-                 dul:isClassifiedBy  ucum:lux ;
-                 dul:hasDataValue ?desired_value .
+              frap:about ?pab .
+  
+  ?pab a frap:Pattern, ssn:ObservationValue;
+       dul:isClassifiedBy  ucum:lux ;
+       dul:hasDataValue ?desired_value .
                  #:filter [
                  #    a :Filter;
                  #    frap:operator op:numeric-greater-than ;
-                 #    dul:hasDataValue ?desired_value .
+                 #    dul:hasDataValue ?last_value .
                  #] .
-              ] .
-   # Simplification: can adjust the light to any level
-   ?last_value < ?desired_value . # op:numeric-greater-than
+   
+   ?desired_value op:greaterThan ?last_value . # op:numeric-greater-than
 }
 =>
 {
@@ -62,6 +65,7 @@
     
   _:newLight a ssn:Observation, lookfor:LastValue  ;
      ssn:observedBy ?light_snr1 ;
+     ssn:observedProperty  sweet:Light ;
      ssn:observationResult _:sensoroutput .
      
    _:sensoroutput a ssn:SensorOutput ;
@@ -70,8 +74,9 @@
 
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
-               dul:hasDataValue _:val .
+               dul:hasDataValue 22 .
+               #dul:hasDataValue _:val .
 
-  _:val > ?last_value .
+  #_:val op:greaterThan ?last_value .
   
 }.

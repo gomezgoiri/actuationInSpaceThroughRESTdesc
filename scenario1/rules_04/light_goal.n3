@@ -5,37 +5,26 @@
 @prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
 @prefix sweet: <http://sweet.jpl.nasa.gov/>.
 @prefix frap: <http://purl.org/frap/>.
-@prefix op: <http://www.w3.org/2007/rif-builtin-predicate#>.
+@prefix op: <http://www.w3.org/2000/10/swap/math#>.
 @prefix lookfor: <http://pending.of/search/>.
 
-:preference a frap:Preference ;
-  frap:about [
-      a frap:Pattern, ssn:ObservationValue;
-      dul:isClassifiedBy  ucum:lux ;
-      dul:hasDataValue 20 .
-      #:filter [
-      #    a :Filter;
-      #    frap:operator op:numeric-greater-than ;
-      #    dul:hasDataValue 20 .
-      #] .
-  ] .
 
 
 { # Analogy: SPARQL WHERE
-  ?light_snr1 a ssn:Sensor;
-              ssn:observes sweet:Light ,
+  ?light_snr1 a ssn:Sensor ;
+              ssn:observes sweet:Light ;
               dul:hasLocation ?room .
   ?light a ssn:Observation ;
 	 ssn:observedProperty  sweet:Light ;
 	 ssn:observationResult  ?sensoroutput .
   ?sensoroutput ssn:hasValue ?outputvalue .
   ?outputvalue  dul:hasDataValue  ?val .
-  ?val > 20 .
+  ?val op:greaterThan 20 .
 }
 =>
 { # Analogy: SPARQL CONSTRUCT
   # goal: Light observation with value 
-  ?val > 20 .
+  ?outputvalue  dul:hasDataValue  ?val .
 }.
 
 

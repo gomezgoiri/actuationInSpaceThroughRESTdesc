@@ -38,12 +38,14 @@
 
 
 
-:lightval000 a  ssn:Observation ;
+:lightobs000 a  ssn:Observation ;
          a lookfor:LastValue ; # TODO use a rule for LastValue!
          ssn:observedProperty  sweet:Light ;
          ssn:observedBy :light_snr1 ;
-         ssn:observationResult [
-             ssn:hasValue [
-                 dul:hasDataValue 16 .
-             ] .
-         ] .
+         ssn:observationResult _:obsRes000 .
+_:obsRes000 a ssn:SensorOutput ;
+            ssn:isProducedBy :light_snr1 ;
+            ssn:hasValue _:dval000 .
+_:dval000 a ssn:ObservationValue ;
+          dul:isClassifiedBy  ucum:lux ;
+          dul:hasDataValue 16 .

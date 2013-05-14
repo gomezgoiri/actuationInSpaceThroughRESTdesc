@@ -1,0 +1,19 @@
+@prefix : <http://example.org/light_scen#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+@prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
+@prefix sweet: <http://sweet.jpl.nasa.gov/>.
+@prefix frap: <http://purl.org/frap/>.
+@prefix op: <http://www.w3.org/2007/rif-builtin-predicate#>.
+@prefix lookfor: <http://pending.of/search/>.
+
+
+
+:preference a frap:Preference ;
+	    frap:about :pab .
+
+:pab a frap:Pattern ;
+      a ssn:ObservationValue ;
+      dul:isClassifiedBy  ucum:lux ;
+      dul:hasDataValue 20 . 
