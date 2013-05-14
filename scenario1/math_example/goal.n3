@@ -1,0 +1,22 @@
+@prefix : <http://example.org/light_scen#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+@prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
+@prefix sweet: <http://sweet.jpl.nasa.gov/>.
+@prefix frap: <http://purl.org/frap/>.
+@prefix op: <http://www.w3.org/2000/10/swap/math#>.
+@prefix lookfor: <http://pending.of/search/>.
+
+
+
+{ # Analogy: SPARQL WHERE
+  ?so dul:hasDataValue ?val .
+  ?val op:greaterThan 10 .
+}
+=>
+{ # Analogy: SPARQL CONSTRUCT
+  ?so dul:hasDataValue ?val .
+}.
+
+
