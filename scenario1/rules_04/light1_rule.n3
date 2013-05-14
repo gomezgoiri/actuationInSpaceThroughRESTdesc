@@ -7,9 +7,13 @@
 @prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
 @prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix frap: <http://purl.org/frap/>.
+@prefix op: <http://www.w3.org/2007/rif-builtin-predicate#>.
+@prefix lookfor: <http://pending.of/search/>.
 
 
 # Service 1: adjustable lamp
+
 
 {
 
@@ -17,7 +21,7 @@
          dul:hasLocation ?room .
 
   ?light_snr1 a ssn:Sensor;
-              # ssn:observes sweet:Light ,
+              ssn:observes sweet:Light ,
               dul:hasLocation ?room .
   
   ?light a  ssn:Observation, lookfor:LastValue ; # use a rule for that!
@@ -29,40 +33,45 @@
              ] .
          ] .
   
+  
+  # TODO define that the datavalue should be sensoroutput
   ?preference a frap:Preference ;
               frap:about [
-                 a frap:Pattern ;
-                 a ssn:ObservationValue ;
-                 :filter [
-                     a :Filter;
-                     frap:operator op:greater-than ;
-                     dul:hasDataValue ?desired_value .
-                 ] .
+                 a frap:Pattern, ssn:ObservationValue;
+                 dul:isClassifiedBy  ucum:lux ;
+                 dul:hasDataValue ?desired_value .
+                 #:filter [
+                 #    a :Filter;
+                 #    frap:operator op:numeric-greater-than ;
+                 #    dul:hasDataValue ?desired_value .
+                 #] .
               ] .
+   # Simplification: can adjust the light to any level
    ?last_value < ?desired_value . # op:numeric-greater-than
-
-
-
-
-  ?light  a  ssn:Observation ;
-          ssn:observedProperty  sweet:Light;
-          [ ssn:hasValue [ dul:hasDataValue ?desired_value ] ]
 }
 =>
 {
   _:request http:methodName "POST";
             http:requestURI "/light1/";
-            http:body ?light;
+            http:body ?preference;
             http:resp [ http:body _:outputvalue ].
             
+  # the following triples will not be returned in the response
+  # instead, maybe they should be put in another rule
+  # (with a GET service or without a service, using our middleware)
+    
+  _:newLight a ssn:Observation, lookfor:LastValue  ;
+     ssn:observedBy ?light_snr1 ;
+     ssn:observationResult _:sensoroutput .
+     
+   _:sensoroutput a ssn:SensorOutput ;
+	      ssn:hasValue _:outputvalue ;
+	      ssn:isProducedBy ?light_snr1 .
+
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
-               dul:hasDataValue ?desired_value .
-               
-  _:sensoroutput a ssn:SensorOutput ;
-                 ssn:hasValue _:outputvalue .
+               dul:hasDataValue _:val .
 
-  ?light a ssn:Observation ;
-     ssn:observedBy	:lamp;
-     ssn:observationResult	_:sensoroutput .
+  _:val > ?last_value .
+  
 }.

@@ -7,6 +7,9 @@
 @prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
 @prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix frap: <http://purl.org/frap/>.
+@prefix op: <http://www.w3.org/2007/rif-builtin-predicate#>.
+@prefix lookfor: <http://pending.of/search/>.
 
 
 # Description of the Lamp and the thermometer
@@ -30,12 +33,13 @@
        lookfor:state lookfor:closed .
 
 :light_snr1 a ssn:Sensor;
-            ssn:observes sweet:Light,
+            ssn:observes sweet:Light ;
             dul:hasLocation :room1 .
 
- 
-  
-:lightval000 a  ssn:Observation, lookfor:LastValue ; # TODO use a rule for LastValue!
+
+
+:lightval000 a  ssn:Observation ;
+         a lookfor:LastValue ; # TODO use a rule for LastValue!
          ssn:observedProperty  sweet:Light ;
          ssn:observedBy :light_snr1 ;
          ssn:observationResult [
