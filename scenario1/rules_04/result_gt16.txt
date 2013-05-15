@@ -1,5 +1,5 @@
 #Processed by Id: euler.yap 6067 2013-03-06 16:36:51Z josd
-#eye facts.n3 light1_rule.n3 light2_rule.n3 temperature_rule.n3 unrelated_rule.n3 preference_fact.n3 --query light_goal.n3
+#eye facts.n3 light1_rule.n3 light2_rule.n3 light3_rule.n3 temperature_rule.n3 unrelated_rule.n3 preference_fact.n3 --query light_goal.n3
 
 @prefix : <http://example.org/light_scen#>.
 @prefix http: <http://www.w3.org/2011/http#>.
@@ -24,30 +24,33 @@
 
   r:component _:lemma2;
 
+  r:component _:lemma3;
+
   r:gives {
-    _:sk2 dul:hasDataValue _:sk5.
-    _:sk8 dul:hasDataValue 24 .
+    _:sk2 dul:hasDataValue 20 .
+    _:sk7 dul:hasDataValue _:sk10.
+    _:sk13 dul:hasDataValue 21 .
   }].
 
-_:lemma1 a r:Inference; r:gives {_:sk2 dul:hasDataValue _:sk5}; r:evidence (
+_:lemma1 a r:Inference; r:gives {_:sk2 dul:hasDataValue 20}; r:evidence (
   [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  _:lemma3
   _:lemma4
   _:lemma5
   _:lemma6
   _:lemma7
-  _:lemma8);
+  _:lemma8
+  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk3"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk4"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk2"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk5"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 20];
   r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5. {var:x0 a ssn:Sensor.
     var:x0 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
     var:x0 dul:hasLocation var:x1.
@@ -59,7 +62,7 @@ _:lemma1 a r:Inference; r:gives {_:sk2 dul:hasDataValue _:sk5}; r:evidence (
     var:x5 math:greaterThan 16} => {var:x4 dul:hasDataValue var:x5}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light_goal.n3>]].
 
-_:lemma2 a r:Inference; r:gives {_:sk8 dul:hasDataValue 24}; r:evidence (
+_:lemma2 a r:Inference; r:gives {_:sk7 dul:hasDataValue _:sk10}; r:evidence (
   [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
@@ -71,13 +74,13 @@ _:lemma2 a r:Inference; r:gives {_:sk8 dul:hasDataValue 24}; r:evidence (
   _:lemma11
   _:lemma12
   _:lemma13
-  [ a r:Fact; r:gives {24 math:greaterThan 16}]);
+  _:lemma14);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk9"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk10"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk8"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 24];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk8"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk9"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk7"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk10"]];
   r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5. {var:x0 a ssn:Sensor.
     var:x0 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
     var:x0 dul:hasLocation var:x1.
@@ -89,10 +92,40 @@ _:lemma2 a r:Inference; r:gives {_:sk8 dul:hasDataValue 24}; r:evidence (
     var:x5 math:greaterThan 16} => {var:x4 dul:hasDataValue var:x5}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light_goal.n3>]].
 
-_:lemma3 a r:Inference; r:gives {_:sk3 a ssn:Observation}; r:evidence (
-  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+_:lemma3 a r:Inference; r:gives {_:sk13 dul:hasDataValue 21}; r:evidence (
+  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  _:lemma15
+  _:lemma16
+  _:lemma17
+  _:lemma18
+  _:lemma19
+  [ a r:Fact; r:gives {21 math:greaterThan 16}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk14"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk15"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "_:sk13"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 21];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5. {var:x0 a ssn:Sensor.
+    var:x0 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
+    var:x0 dul:hasLocation var:x1.
+    var:x2 a ssn:Observation.
+    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x2 ssn:observationResult var:x3.
+    var:x3 ssn:hasValue var:x4.
+    var:x4 dul:hasDataValue var:x5.
+    var:x5 math:greaterThan 16} => {var:x4 dul:hasDataValue var:x5}};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light_goal.n3>]].
+
+_:lemma4 a r:Inference; r:gives {_:sk3 a ssn:Observation}; r:evidence (
+  [ a r:Extraction; r:gives {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:adj_lamp dul:hasLocation :room1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
@@ -108,12 +141,6 @@ _:lemma3 a r:Inference; r:gives {_:sk3 a ssn:Observation}; r:evidence (
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. var:obsRes000_1 a ssn:SensorOutput};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
@@ -125,19 +152,16 @@ _:lemma3 a r:Inference; r:gives {_:sk3 a ssn:Observation}; r:evidence (
   [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:lamp a <http://dbpedia.org/resource/Lamp>.
-    :lamp dul:hasLocation var:x0.
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6. @forSome var:x7, var:x8, var:x9, var:x10, var:x11. {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>.
+    :adj_lamp dul:hasLocation var:x0.
     var:x1 a ssn:Sensor.
     var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
     var:x1 dul:hasLocation var:x0.
@@ -145,38 +169,33 @@ _:lemma3 a r:Inference; r:gives {_:sk3 a ssn:Observation}; r:evidence (
     var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
     var:x2 ssn:observedBy var:x1.
     var:x2 ssn:observationResult var:x3.
-    var:x3 a ssn:SensorOutput.
-    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x4 dul:hasDataValue var:x5.
-    var:x6 a <http://purl.org/frap/Preference>.
-    var:x6 <http://purl.org/frap/about> var:x7.
-    var:x7 a <http://purl.org/frap/Pattern>.
-    var:x7 a ssn:ObservationValue.
-    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x7 dul:hasDataValue var:x8.
-    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
-    var:x9 http:requestURI "/light1/".
-    var:x9 http:body var:x6.
-    var:x9 http:resp var:x10.
-    var:x10 http:body var:x11.
-    var:x12 a ssn:Observation.
-    var:x12 a <http://pending.of/search/LastValue>.
-    var:x12 ssn:observedBy var:x1.
-    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
-    var:x12 ssn:observationResult var:x13.
-    var:x13 a ssn:SensorOutput.
-    var:x13 ssn:hasValue var:x11.
-    var:x13 ssn:isProducedBy var:x1.
-    var:x11 a ssn:ObservationValue.
-    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue var:x14.
-    var:x14 math:greaterThan var:x5}};
+    var:x4 a <http://purl.org/frap/Preference>.
+    var:x4 <http://purl.org/frap/about> var:x5.
+    var:x5 a <http://purl.org/frap/Pattern>.
+    var:x5 a ssn:ObservationValue.
+    var:x5 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x5 dul:hasDataValue var:x6} => {var:x7 http:methodName "POST".
+    var:x7 http:requestURI "/light1/".
+    var:x7 http:body var:x4.
+    var:x7 http:resp var:x8.
+    var:x8 http:body var:x9.
+    var:x10 a ssn:Observation.
+    var:x10 a <http://pending.of/search/LastValue>.
+    var:x10 ssn:observedBy var:x1.
+    var:x10 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x10 ssn:observationResult var:x11.
+    var:x11 a ssn:SensorOutput.
+    var:x11 ssn:hasValue var:x9.
+    var:x11 ssn:isProducedBy var:x1.
+    var:x9 a ssn:ObservationValue.
+    var:x9 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x9 dul:hasDataValue var:x6}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light1_rule.n3>]].
 
-_:lemma4 a r:Inference; r:gives {_:sk3 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>}; r:evidence (
-  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+_:lemma5 a r:Inference; r:gives {_:sk3 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>}; r:evidence (
+  [ a r:Extraction; r:gives {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+  [ a r:Extraction; r:gives {:adj_lamp dul:hasLocation :room1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
@@ -192,12 +211,6 @@ _:lemma4 a r:Inference; r:gives {_:sk3 ssn:observedProperty <http://sweet.jpl.na
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. var:obsRes000_1 a ssn:SensorOutput};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
@@ -209,19 +222,16 @@ _:lemma4 a r:Inference; r:gives {_:sk3 ssn:observedProperty <http://sweet.jpl.na
   [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:lamp a <http://dbpedia.org/resource/Lamp>.
-    :lamp dul:hasLocation var:x0.
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6. @forSome var:x7, var:x8, var:x9, var:x10, var:x11. {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>.
+    :adj_lamp dul:hasLocation var:x0.
     var:x1 a ssn:Sensor.
     var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
     var:x1 dul:hasLocation var:x0.
@@ -229,38 +239,33 @@ _:lemma4 a r:Inference; r:gives {_:sk3 ssn:observedProperty <http://sweet.jpl.na
     var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
     var:x2 ssn:observedBy var:x1.
     var:x2 ssn:observationResult var:x3.
-    var:x3 a ssn:SensorOutput.
-    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x4 dul:hasDataValue var:x5.
-    var:x6 a <http://purl.org/frap/Preference>.
-    var:x6 <http://purl.org/frap/about> var:x7.
-    var:x7 a <http://purl.org/frap/Pattern>.
-    var:x7 a ssn:ObservationValue.
-    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x7 dul:hasDataValue var:x8.
-    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
-    var:x9 http:requestURI "/light1/".
-    var:x9 http:body var:x6.
-    var:x9 http:resp var:x10.
-    var:x10 http:body var:x11.
-    var:x12 a ssn:Observation.
-    var:x12 a <http://pending.of/search/LastValue>.
-    var:x12 ssn:observedBy var:x1.
-    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
-    var:x12 ssn:observationResult var:x13.
-    var:x13 a ssn:SensorOutput.
-    var:x13 ssn:hasValue var:x11.
-    var:x13 ssn:isProducedBy var:x1.
-    var:x11 a ssn:ObservationValue.
-    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue var:x14.
-    var:x14 math:greaterThan var:x5}};
+    var:x4 a <http://purl.org/frap/Preference>.
+    var:x4 <http://purl.org/frap/about> var:x5.
+    var:x5 a <http://purl.org/frap/Pattern>.
+    var:x5 a ssn:ObservationValue.
+    var:x5 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x5 dul:hasDataValue var:x6} => {var:x7 http:methodName "POST".
+    var:x7 http:requestURI "/light1/".
+    var:x7 http:body var:x4.
+    var:x7 http:resp var:x8.
+    var:x8 http:body var:x9.
+    var:x10 a ssn:Observation.
+    var:x10 a <http://pending.of/search/LastValue>.
+    var:x10 ssn:observedBy var:x1.
+    var:x10 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x10 ssn:observationResult var:x11.
+    var:x11 a ssn:SensorOutput.
+    var:x11 ssn:hasValue var:x9.
+    var:x11 ssn:isProducedBy var:x1.
+    var:x9 a ssn:ObservationValue.
+    var:x9 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x9 dul:hasDataValue var:x6}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light1_rule.n3>]].
 
-_:lemma5 a r:Inference; r:gives {_:sk3 ssn:observationResult _:sk4}; r:evidence (
-  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+_:lemma6 a r:Inference; r:gives {_:sk3 ssn:observationResult _:sk4}; r:evidence (
+  [ a r:Extraction; r:gives {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+  [ a r:Extraction; r:gives {:adj_lamp dul:hasLocation :room1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
@@ -276,12 +281,6 @@ _:lemma5 a r:Inference; r:gives {_:sk3 ssn:observationResult _:sk4}; r:evidence 
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. var:obsRes000_1 a ssn:SensorOutput};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
@@ -293,19 +292,16 @@ _:lemma5 a r:Inference; r:gives {_:sk3 ssn:observationResult _:sk4}; r:evidence 
   [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:lamp a <http://dbpedia.org/resource/Lamp>.
-    :lamp dul:hasLocation var:x0.
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6. @forSome var:x7, var:x8, var:x9, var:x10, var:x11. {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>.
+    :adj_lamp dul:hasLocation var:x0.
     var:x1 a ssn:Sensor.
     var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
     var:x1 dul:hasLocation var:x0.
@@ -313,38 +309,33 @@ _:lemma5 a r:Inference; r:gives {_:sk3 ssn:observationResult _:sk4}; r:evidence 
     var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
     var:x2 ssn:observedBy var:x1.
     var:x2 ssn:observationResult var:x3.
-    var:x3 a ssn:SensorOutput.
-    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x4 dul:hasDataValue var:x5.
-    var:x6 a <http://purl.org/frap/Preference>.
-    var:x6 <http://purl.org/frap/about> var:x7.
-    var:x7 a <http://purl.org/frap/Pattern>.
-    var:x7 a ssn:ObservationValue.
-    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x7 dul:hasDataValue var:x8.
-    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
-    var:x9 http:requestURI "/light1/".
-    var:x9 http:body var:x6.
-    var:x9 http:resp var:x10.
-    var:x10 http:body var:x11.
-    var:x12 a ssn:Observation.
-    var:x12 a <http://pending.of/search/LastValue>.
-    var:x12 ssn:observedBy var:x1.
-    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
-    var:x12 ssn:observationResult var:x13.
-    var:x13 a ssn:SensorOutput.
-    var:x13 ssn:hasValue var:x11.
-    var:x13 ssn:isProducedBy var:x1.
-    var:x11 a ssn:ObservationValue.
-    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue var:x14.
-    var:x14 math:greaterThan var:x5}};
+    var:x4 a <http://purl.org/frap/Preference>.
+    var:x4 <http://purl.org/frap/about> var:x5.
+    var:x5 a <http://purl.org/frap/Pattern>.
+    var:x5 a ssn:ObservationValue.
+    var:x5 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x5 dul:hasDataValue var:x6} => {var:x7 http:methodName "POST".
+    var:x7 http:requestURI "/light1/".
+    var:x7 http:body var:x4.
+    var:x7 http:resp var:x8.
+    var:x8 http:body var:x9.
+    var:x10 a ssn:Observation.
+    var:x10 a <http://pending.of/search/LastValue>.
+    var:x10 ssn:observedBy var:x1.
+    var:x10 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x10 ssn:observationResult var:x11.
+    var:x11 a ssn:SensorOutput.
+    var:x11 ssn:hasValue var:x9.
+    var:x11 ssn:isProducedBy var:x1.
+    var:x9 a ssn:ObservationValue.
+    var:x9 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x9 dul:hasDataValue var:x6}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light1_rule.n3>]].
 
-_:lemma6 a r:Inference; r:gives {_:sk4 ssn:hasValue _:sk2}; r:evidence (
-  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+_:lemma7 a r:Inference; r:gives {_:sk4 ssn:hasValue _:sk2}; r:evidence (
+  [ a r:Extraction; r:gives {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+  [ a r:Extraction; r:gives {:adj_lamp dul:hasLocation :room1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
@@ -360,12 +351,6 @@ _:lemma6 a r:Inference; r:gives {_:sk4 ssn:hasValue _:sk2}; r:evidence (
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. var:obsRes000_1 a ssn:SensorOutput};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
@@ -377,19 +362,16 @@ _:lemma6 a r:Inference; r:gives {_:sk4 ssn:hasValue _:sk2}; r:evidence (
   [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:lamp a <http://dbpedia.org/resource/Lamp>.
-    :lamp dul:hasLocation var:x0.
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6. @forSome var:x7, var:x8, var:x9, var:x10, var:x11. {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>.
+    :adj_lamp dul:hasLocation var:x0.
     var:x1 a ssn:Sensor.
     var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
     var:x1 dul:hasLocation var:x0.
@@ -397,38 +379,33 @@ _:lemma6 a r:Inference; r:gives {_:sk4 ssn:hasValue _:sk2}; r:evidence (
     var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
     var:x2 ssn:observedBy var:x1.
     var:x2 ssn:observationResult var:x3.
-    var:x3 a ssn:SensorOutput.
-    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x4 dul:hasDataValue var:x5.
-    var:x6 a <http://purl.org/frap/Preference>.
-    var:x6 <http://purl.org/frap/about> var:x7.
-    var:x7 a <http://purl.org/frap/Pattern>.
-    var:x7 a ssn:ObservationValue.
-    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x7 dul:hasDataValue var:x8.
-    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
-    var:x9 http:requestURI "/light1/".
-    var:x9 http:body var:x6.
-    var:x9 http:resp var:x10.
-    var:x10 http:body var:x11.
-    var:x12 a ssn:Observation.
-    var:x12 a <http://pending.of/search/LastValue>.
-    var:x12 ssn:observedBy var:x1.
-    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
-    var:x12 ssn:observationResult var:x13.
-    var:x13 a ssn:SensorOutput.
-    var:x13 ssn:hasValue var:x11.
-    var:x13 ssn:isProducedBy var:x1.
-    var:x11 a ssn:ObservationValue.
-    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue var:x14.
-    var:x14 math:greaterThan var:x5}};
+    var:x4 a <http://purl.org/frap/Preference>.
+    var:x4 <http://purl.org/frap/about> var:x5.
+    var:x5 a <http://purl.org/frap/Pattern>.
+    var:x5 a ssn:ObservationValue.
+    var:x5 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x5 dul:hasDataValue var:x6} => {var:x7 http:methodName "POST".
+    var:x7 http:requestURI "/light1/".
+    var:x7 http:body var:x4.
+    var:x7 http:resp var:x8.
+    var:x8 http:body var:x9.
+    var:x10 a ssn:Observation.
+    var:x10 a <http://pending.of/search/LastValue>.
+    var:x10 ssn:observedBy var:x1.
+    var:x10 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x10 ssn:observationResult var:x11.
+    var:x11 a ssn:SensorOutput.
+    var:x11 ssn:hasValue var:x9.
+    var:x11 ssn:isProducedBy var:x1.
+    var:x9 a ssn:ObservationValue.
+    var:x9 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x9 dul:hasDataValue var:x6}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light1_rule.n3>]].
 
-_:lemma7 a r:Inference; r:gives {_:sk2 dul:hasDataValue _:sk5}; r:evidence (
-  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+_:lemma8 a r:Inference; r:gives {_:sk2 dul:hasDataValue 20}; r:evidence (
+  [ a r:Extraction; r:gives {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+  [ a r:Extraction; r:gives {:adj_lamp dul:hasLocation :room1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
@@ -444,12 +421,6 @@ _:lemma7 a r:Inference; r:gives {_:sk2 dul:hasDataValue _:sk5}; r:evidence (
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. var:obsRes000_1 a ssn:SensorOutput};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
@@ -461,19 +432,16 @@ _:lemma7 a r:Inference; r:gives {_:sk2 dul:hasDataValue _:sk5}; r:evidence (
   [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
   [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]);
   r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:lamp a <http://dbpedia.org/resource/Lamp>.
-    :lamp dul:hasLocation var:x0.
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6. @forSome var:x7, var:x8, var:x9, var:x10, var:x11. {:adj_lamp a <http://dbpedia.org/resource/AjustableLamp>.
+    :adj_lamp dul:hasLocation var:x0.
     var:x1 a ssn:Sensor.
     var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
     var:x1 dul:hasLocation var:x0.
@@ -481,119 +449,30 @@ _:lemma7 a r:Inference; r:gives {_:sk2 dul:hasDataValue _:sk5}; r:evidence (
     var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
     var:x2 ssn:observedBy var:x1.
     var:x2 ssn:observationResult var:x3.
-    var:x3 a ssn:SensorOutput.
-    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x4 dul:hasDataValue var:x5.
-    var:x6 a <http://purl.org/frap/Preference>.
-    var:x6 <http://purl.org/frap/about> var:x7.
-    var:x7 a <http://purl.org/frap/Pattern>.
-    var:x7 a ssn:ObservationValue.
-    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x7 dul:hasDataValue var:x8.
-    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
-    var:x9 http:requestURI "/light1/".
-    var:x9 http:body var:x6.
-    var:x9 http:resp var:x10.
-    var:x10 http:body var:x11.
-    var:x12 a ssn:Observation.
-    var:x12 a <http://pending.of/search/LastValue>.
-    var:x12 ssn:observedBy var:x1.
-    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
-    var:x12 ssn:observationResult var:x13.
-    var:x13 a ssn:SensorOutput.
-    var:x13 ssn:hasValue var:x11.
-    var:x13 ssn:isProducedBy var:x1.
-    var:x11 a ssn:ObservationValue.
-    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue var:x14.
-    var:x14 math:greaterThan var:x5}};
+    var:x4 a <http://purl.org/frap/Preference>.
+    var:x4 <http://purl.org/frap/about> var:x5.
+    var:x5 a <http://purl.org/frap/Pattern>.
+    var:x5 a ssn:ObservationValue.
+    var:x5 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x5 dul:hasDataValue var:x6} => {var:x7 http:methodName "POST".
+    var:x7 http:requestURI "/light1/".
+    var:x7 http:body var:x4.
+    var:x7 http:resp var:x8.
+    var:x8 http:body var:x9.
+    var:x10 a ssn:Observation.
+    var:x10 a <http://pending.of/search/LastValue>.
+    var:x10 ssn:observedBy var:x1.
+    var:x10 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x10 ssn:observationResult var:x11.
+    var:x11 a ssn:SensorOutput.
+    var:x11 ssn:hasValue var:x9.
+    var:x11 ssn:isProducedBy var:x1.
+    var:x9 a ssn:ObservationValue.
+    var:x9 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x9 dul:hasDataValue var:x6}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light1_rule.n3>]].
 
-_:lemma8 a r:Inference; r:gives {_:sk5 math:greaterThan 16}; r:evidence (
-  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lightobs000 a <http://pending.of/search/LastValue>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lightobs000 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:lightobs000 ssn:observedBy :light_snr1};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. var:obsRes000_1 a ssn:SensorOutput};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
-  [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Extraction; r:gives {:pab a <http://purl.org/frap/Pattern>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Extraction; r:gives {:pab a ssn:ObservationValue};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
-  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
-  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:lamp a <http://dbpedia.org/resource/Lamp>.
-    :lamp dul:hasLocation var:x0.
-    var:x1 a ssn:Sensor.
-    var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
-    var:x1 dul:hasLocation var:x0.
-    var:x2 a <http://pending.of/search/LastValue>.
-    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
-    var:x2 ssn:observedBy var:x1.
-    var:x2 ssn:observationResult var:x3.
-    var:x3 a ssn:SensorOutput.
-    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x4 dul:hasDataValue var:x5.
-    var:x6 a <http://purl.org/frap/Preference>.
-    var:x6 <http://purl.org/frap/about> var:x7.
-    var:x7 a <http://purl.org/frap/Pattern>.
-    var:x7 a ssn:ObservationValue.
-    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x7 dul:hasDataValue var:x8.
-    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
-    var:x9 http:requestURI "/light1/".
-    var:x9 http:body var:x6.
-    var:x9 http:resp var:x10.
-    var:x10 http:body var:x11.
-    var:x12 a ssn:Observation.
-    var:x12 a <http://pending.of/search/LastValue>.
-    var:x12 ssn:observedBy var:x1.
-    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
-    var:x12 ssn:observationResult var:x13.
-    var:x13 a ssn:SensorOutput.
-    var:x13 ssn:hasValue var:x11.
-    var:x13 ssn:isProducedBy var:x1.
-    var:x11 a ssn:ObservationValue.
-    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue var:x14.
-    var:x14 math:greaterThan var:x5}};
-    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light1_rule.n3>]].
-
-_:lemma9 a r:Inference; r:gives {_:sk9 a ssn:Observation}; r:evidence (
+_:lemma9 a r:Inference; r:gives {_:sk8 a ssn:Observation}; r:evidence (
   [ a r:Extraction; r:gives {:blind a <http://pending.of/search/Blind>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:blind dul:hasLocation :room1};
@@ -644,7 +523,7 @@ _:lemma9 a r:Inference; r:gives {_:sk9 a ssn:Observation}; r:evidence (
   r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:blind a <http://pending.of/search/Blind>.
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:blind a <http://pending.of/search/Blind>.
     :blind dul:hasLocation var:x0.
     :blind <http://pending.of/search/state> <http://pending.of/search/closed>.
     var:x1 a ssn:Sensor.
@@ -680,10 +559,11 @@ _:lemma9 a r:Inference; r:gives {_:sk9 a ssn:Observation}; r:evidence (
     var:x13 ssn:isProducedBy var:x1.
     var:x11 a ssn:ObservationValue.
     var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue 24}};
+    var:x11 dul:hasDataValue var:x14.
+    var:x14 math:greaterThan var:x5}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light2_rule.n3>]].
 
-_:lemma10 a r:Inference; r:gives {_:sk9 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>}; r:evidence (
+_:lemma10 a r:Inference; r:gives {_:sk8 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>}; r:evidence (
   [ a r:Extraction; r:gives {:blind a <http://pending.of/search/Blind>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:blind dul:hasLocation :room1};
@@ -734,7 +614,7 @@ _:lemma10 a r:Inference; r:gives {_:sk9 ssn:observedProperty <http://sweet.jpl.n
   r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:blind a <http://pending.of/search/Blind>.
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:blind a <http://pending.of/search/Blind>.
     :blind dul:hasLocation var:x0.
     :blind <http://pending.of/search/state> <http://pending.of/search/closed>.
     var:x1 a ssn:Sensor.
@@ -770,10 +650,11 @@ _:lemma10 a r:Inference; r:gives {_:sk9 ssn:observedProperty <http://sweet.jpl.n
     var:x13 ssn:isProducedBy var:x1.
     var:x11 a ssn:ObservationValue.
     var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue 24}};
+    var:x11 dul:hasDataValue var:x14.
+    var:x14 math:greaterThan var:x5}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light2_rule.n3>]].
 
-_:lemma11 a r:Inference; r:gives {_:sk9 ssn:observationResult _:sk10}; r:evidence (
+_:lemma11 a r:Inference; r:gives {_:sk8 ssn:observationResult _:sk9}; r:evidence (
   [ a r:Extraction; r:gives {:blind a <http://pending.of/search/Blind>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:blind dul:hasLocation :room1};
@@ -824,7 +705,7 @@ _:lemma11 a r:Inference; r:gives {_:sk9 ssn:observationResult _:sk10}; r:evidenc
   r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:blind a <http://pending.of/search/Blind>.
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:blind a <http://pending.of/search/Blind>.
     :blind dul:hasLocation var:x0.
     :blind <http://pending.of/search/state> <http://pending.of/search/closed>.
     var:x1 a ssn:Sensor.
@@ -860,10 +741,11 @@ _:lemma11 a r:Inference; r:gives {_:sk9 ssn:observationResult _:sk10}; r:evidenc
     var:x13 ssn:isProducedBy var:x1.
     var:x11 a ssn:ObservationValue.
     var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue 24}};
+    var:x11 dul:hasDataValue var:x14.
+    var:x14 math:greaterThan var:x5}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light2_rule.n3>]].
 
-_:lemma12 a r:Inference; r:gives {_:sk10 ssn:hasValue _:sk8}; r:evidence (
+_:lemma12 a r:Inference; r:gives {_:sk9 ssn:hasValue _:sk7}; r:evidence (
   [ a r:Extraction; r:gives {:blind a <http://pending.of/search/Blind>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:blind dul:hasLocation :room1};
@@ -914,7 +796,7 @@ _:lemma12 a r:Inference; r:gives {_:sk10 ssn:hasValue _:sk8}; r:evidence (
   r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:blind a <http://pending.of/search/Blind>.
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:blind a <http://pending.of/search/Blind>.
     :blind dul:hasLocation var:x0.
     :blind <http://pending.of/search/state> <http://pending.of/search/closed>.
     var:x1 a ssn:Sensor.
@@ -950,10 +832,11 @@ _:lemma12 a r:Inference; r:gives {_:sk10 ssn:hasValue _:sk8}; r:evidence (
     var:x13 ssn:isProducedBy var:x1.
     var:x11 a ssn:ObservationValue.
     var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue 24}};
+    var:x11 dul:hasDataValue var:x14.
+    var:x14 math:greaterThan var:x5}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light2_rule.n3>]].
 
-_:lemma13 a r:Inference; r:gives {_:sk8 dul:hasDataValue 24}; r:evidence (
+_:lemma13 a r:Inference; r:gives {_:sk7 dul:hasDataValue _:sk10}; r:evidence (
   [ a r:Extraction; r:gives {:blind a <http://pending.of/search/Blind>};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
   [ a r:Extraction; r:gives {:blind dul:hasLocation :room1};
@@ -1004,7 +887,7 @@ _:lemma13 a r:Inference; r:gives {_:sk8 dul:hasDataValue 24}; r:evidence (
   r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
   r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
-  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:blind a <http://pending.of/search/Blind>.
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:blind a <http://pending.of/search/Blind>.
     :blind dul:hasLocation var:x0.
     :blind <http://pending.of/search/state> <http://pending.of/search/closed>.
     var:x1 a ssn:Sensor.
@@ -1040,8 +923,520 @@ _:lemma13 a r:Inference; r:gives {_:sk8 dul:hasDataValue 24}; r:evidence (
     var:x13 ssn:isProducedBy var:x1.
     var:x11 a ssn:ObservationValue.
     var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
-    var:x11 dul:hasDataValue 24}};
+    var:x11 dul:hasDataValue var:x14.
+    var:x14 math:greaterThan var:x5}};
     r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light2_rule.n3>]].
 
-#ENDS 0.132 [sec] TC=6 TP=18 BC=0 BP=8 PM=0 CM=0 FM=0 AM=0
+_:lemma14 a r:Inference; r:gives {_:sk10 math:greaterThan 16}; r:evidence (
+  [ a r:Extraction; r:gives {:blind a <http://pending.of/search/Blind>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:blind dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:blind <http://pending.of/search/state> <http://pending.of/search/closed>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 a ssn:Observation};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 a <http://pending.of/search/LastValue>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedBy :light_snr1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1, var:dval000_1. var:obsRes000_1 ssn:hasValue var:dval000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a <http://purl.org/frap/Pattern>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a ssn:ObservationValue};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13, var:x14. {:blind a <http://pending.of/search/Blind>.
+    :blind dul:hasLocation var:x0.
+    :blind <http://pending.of/search/state> <http://pending.of/search/closed>.
+    var:x1 a ssn:Sensor.
+    var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
+    var:x1 dul:hasLocation var:x0.
+    var:x2 a ssn:Observation.
+    var:x2 a <http://pending.of/search/LastValue>.
+    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x2 ssn:observedBy var:x1.
+    var:x2 ssn:observationResult var:x3.
+    var:x3 ssn:hasValue var:x4.
+    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x4 dul:hasDataValue var:x5.
+    var:x6 a <http://purl.org/frap/Preference>.
+    var:x6 <http://purl.org/frap/about> var:x7.
+    var:x7 a <http://purl.org/frap/Pattern>.
+    var:x7 a ssn:ObservationValue.
+    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x7 dul:hasDataValue var:x8.
+    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
+    var:x9 http:requestURI "/blind/".
+    var:x9 http:body var:x6.
+    var:x9 http:resp var:x10.
+    var:x10 http:body var:x11.
+    :blind a <http://pending.of/search/Blind>.
+    :blind <http://pending.of/search/state> <http://pending.of/search/opened>.
+    var:x12 a ssn:Observation.
+    var:x12 ssn:observedBy var:x1.
+    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x12 ssn:observationResult var:x13.
+    var:x13 a ssn:SensorOutput.
+    var:x13 ssn:hasValue var:x11.
+    var:x13 ssn:isProducedBy var:x1.
+    var:x11 a ssn:ObservationValue.
+    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x11 dul:hasDataValue var:x14.
+    var:x14 math:greaterThan var:x5}};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light2_rule.n3>]].
+
+_:lemma15 a r:Inference; r:gives {_:sk14 a ssn:Observation}; r:evidence (
+  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 a <http://pending.of/search/LastValue>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedBy :light_snr1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1, var:dval000_1. var:obsRes000_1 ssn:hasValue var:dval000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a <http://purl.org/frap/Pattern>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a ssn:ObservationValue};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:lamp a <http://dbpedia.org/resource/Lamp>.
+    :lamp dul:hasLocation var:x0.
+    var:x1 a ssn:Sensor.
+    var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
+    var:x1 dul:hasLocation var:x0.
+    var:x2 a <http://pending.of/search/LastValue>.
+    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x2 ssn:observedBy var:x1.
+    var:x2 ssn:observationResult var:x3.
+    var:x3 ssn:hasValue var:x4.
+    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x4 dul:hasDataValue var:x5.
+    var:x6 a <http://purl.org/frap/Preference>.
+    var:x6 <http://purl.org/frap/about> var:x7.
+    var:x7 a <http://purl.org/frap/Pattern>.
+    var:x7 a ssn:ObservationValue.
+    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x7 dul:hasDataValue var:x8.
+    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
+    var:x9 http:requestURI "/blind/".
+    var:x9 http:body var:x6.
+    var:x9 http:resp var:x10.
+    var:x10 http:body var:x11.
+    :blind a <http://pending.of/search/Blind>.
+    :blind <http://pending.of/search/state> <http://pending.of/search/opened>.
+    var:x12 a ssn:Observation.
+    var:x12 ssn:observedBy var:x1.
+    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x12 ssn:observationResult var:x13.
+    var:x13 a ssn:SensorOutput.
+    var:x13 ssn:hasValue var:x11.
+    var:x13 ssn:isProducedBy var:x1.
+    var:x11 a ssn:ObservationValue.
+    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x11 dul:hasDataValue 21}};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light3_rule.n3>]].
+
+_:lemma16 a r:Inference; r:gives {_:sk14 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>}; r:evidence (
+  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 a <http://pending.of/search/LastValue>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedBy :light_snr1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1, var:dval000_1. var:obsRes000_1 ssn:hasValue var:dval000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a <http://purl.org/frap/Pattern>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a ssn:ObservationValue};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:lamp a <http://dbpedia.org/resource/Lamp>.
+    :lamp dul:hasLocation var:x0.
+    var:x1 a ssn:Sensor.
+    var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
+    var:x1 dul:hasLocation var:x0.
+    var:x2 a <http://pending.of/search/LastValue>.
+    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x2 ssn:observedBy var:x1.
+    var:x2 ssn:observationResult var:x3.
+    var:x3 ssn:hasValue var:x4.
+    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x4 dul:hasDataValue var:x5.
+    var:x6 a <http://purl.org/frap/Preference>.
+    var:x6 <http://purl.org/frap/about> var:x7.
+    var:x7 a <http://purl.org/frap/Pattern>.
+    var:x7 a ssn:ObservationValue.
+    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x7 dul:hasDataValue var:x8.
+    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
+    var:x9 http:requestURI "/blind/".
+    var:x9 http:body var:x6.
+    var:x9 http:resp var:x10.
+    var:x10 http:body var:x11.
+    :blind a <http://pending.of/search/Blind>.
+    :blind <http://pending.of/search/state> <http://pending.of/search/opened>.
+    var:x12 a ssn:Observation.
+    var:x12 ssn:observedBy var:x1.
+    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x12 ssn:observationResult var:x13.
+    var:x13 a ssn:SensorOutput.
+    var:x13 ssn:hasValue var:x11.
+    var:x13 ssn:isProducedBy var:x1.
+    var:x11 a ssn:ObservationValue.
+    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x11 dul:hasDataValue 21}};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light3_rule.n3>]].
+
+_:lemma17 a r:Inference; r:gives {_:sk14 ssn:observationResult _:sk15}; r:evidence (
+  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 a <http://pending.of/search/LastValue>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedBy :light_snr1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1, var:dval000_1. var:obsRes000_1 ssn:hasValue var:dval000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a <http://purl.org/frap/Pattern>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a ssn:ObservationValue};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:lamp a <http://dbpedia.org/resource/Lamp>.
+    :lamp dul:hasLocation var:x0.
+    var:x1 a ssn:Sensor.
+    var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
+    var:x1 dul:hasLocation var:x0.
+    var:x2 a <http://pending.of/search/LastValue>.
+    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x2 ssn:observedBy var:x1.
+    var:x2 ssn:observationResult var:x3.
+    var:x3 ssn:hasValue var:x4.
+    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x4 dul:hasDataValue var:x5.
+    var:x6 a <http://purl.org/frap/Preference>.
+    var:x6 <http://purl.org/frap/about> var:x7.
+    var:x7 a <http://purl.org/frap/Pattern>.
+    var:x7 a ssn:ObservationValue.
+    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x7 dul:hasDataValue var:x8.
+    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
+    var:x9 http:requestURI "/blind/".
+    var:x9 http:body var:x6.
+    var:x9 http:resp var:x10.
+    var:x10 http:body var:x11.
+    :blind a <http://pending.of/search/Blind>.
+    :blind <http://pending.of/search/state> <http://pending.of/search/opened>.
+    var:x12 a ssn:Observation.
+    var:x12 ssn:observedBy var:x1.
+    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x12 ssn:observationResult var:x13.
+    var:x13 a ssn:SensorOutput.
+    var:x13 ssn:hasValue var:x11.
+    var:x13 ssn:isProducedBy var:x1.
+    var:x11 a ssn:ObservationValue.
+    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x11 dul:hasDataValue 21}};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light3_rule.n3>]].
+
+_:lemma18 a r:Inference; r:gives {_:sk15 ssn:hasValue _:sk13}; r:evidence (
+  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 a <http://pending.of/search/LastValue>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedBy :light_snr1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1, var:dval000_1. var:obsRes000_1 ssn:hasValue var:dval000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a <http://purl.org/frap/Pattern>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a ssn:ObservationValue};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:lamp a <http://dbpedia.org/resource/Lamp>.
+    :lamp dul:hasLocation var:x0.
+    var:x1 a ssn:Sensor.
+    var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
+    var:x1 dul:hasLocation var:x0.
+    var:x2 a <http://pending.of/search/LastValue>.
+    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x2 ssn:observedBy var:x1.
+    var:x2 ssn:observationResult var:x3.
+    var:x3 ssn:hasValue var:x4.
+    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x4 dul:hasDataValue var:x5.
+    var:x6 a <http://purl.org/frap/Preference>.
+    var:x6 <http://purl.org/frap/about> var:x7.
+    var:x7 a <http://purl.org/frap/Pattern>.
+    var:x7 a ssn:ObservationValue.
+    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x7 dul:hasDataValue var:x8.
+    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
+    var:x9 http:requestURI "/blind/".
+    var:x9 http:body var:x6.
+    var:x9 http:resp var:x10.
+    var:x10 http:body var:x11.
+    :blind a <http://pending.of/search/Blind>.
+    :blind <http://pending.of/search/state> <http://pending.of/search/opened>.
+    var:x12 a ssn:Observation.
+    var:x12 ssn:observedBy var:x1.
+    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x12 ssn:observationResult var:x13.
+    var:x13 a ssn:SensorOutput.
+    var:x13 ssn:hasValue var:x11.
+    var:x13 ssn:isProducedBy var:x1.
+    var:x11 a ssn:ObservationValue.
+    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x11 dul:hasDataValue 21}};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light3_rule.n3>]].
+
+_:lemma19 a r:Inference; r:gives {_:sk13 dul:hasDataValue 21}; r:evidence (
+  [ a r:Extraction; r:gives {:lamp a <http://dbpedia.org/resource/Lamp>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lamp dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 a ssn:Sensor};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 ssn:observes <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:light_snr1 dul:hasLocation :room1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 a <http://pending.of/search/LastValue>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:lightobs000 ssn:observedBy :light_snr1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1. :lightobs000 ssn:observationResult var:obsRes000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:obsRes000_1, var:dval000_1. var:obsRes000_1 ssn:hasValue var:dval000_1};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {@forSome var:dval000_1. var:dval000_1 dul:hasDataValue 16};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/facts.n3>]]
+  [ a r:Extraction; r:gives {:preference a <http://purl.org/frap/Preference>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:preference <http://purl.org/frap/about> :pab};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a <http://purl.org/frap/Pattern>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab a ssn:ObservationValue};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Extraction; r:gives {:pab dul:hasDataValue 20};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/preference_fact.n3>]]
+  [ a r:Fact; r:gives {20 math:greaterThan 16}]);
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x0"]; r:boundTo [ n3:uri "http://example.org/light_scen#room1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x1"]; r:boundTo [ n3:uri "http://example.org/light_scen#light_snr1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x2"]; r:boundTo [ n3:uri "http://example.org/light_scen#lightobs000"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x3"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#obsRes000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x4"]; r:boundTo [ a r:Existential; n3:nodeId "http://localhost/var#dval000_1"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x5"]; r:boundTo 16];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x6"]; r:boundTo [ n3:uri "http://example.org/light_scen#preference"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x7"]; r:boundTo [ n3:uri "http://example.org/light_scen#pab"]];
+  r:binding [ r:variable [ n3:uri "http://localhost/var#x8"]; r:boundTo 20];
+  r:rule [ a r:Extraction; r:gives {@forAll var:x0, var:x1, var:x2, var:x3, var:x4, var:x5, var:x6, var:x7, var:x8. @forSome var:x9, var:x10, var:x11, var:x12, var:x13. {:lamp a <http://dbpedia.org/resource/Lamp>.
+    :lamp dul:hasLocation var:x0.
+    var:x1 a ssn:Sensor.
+    var:x1 ssn:observes <http://sweet.jpl.nasa.gov/Light>.
+    var:x1 dul:hasLocation var:x0.
+    var:x2 a <http://pending.of/search/LastValue>.
+    var:x2 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x2 ssn:observedBy var:x1.
+    var:x2 ssn:observationResult var:x3.
+    var:x3 ssn:hasValue var:x4.
+    var:x4 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x4 dul:hasDataValue var:x5.
+    var:x6 a <http://purl.org/frap/Preference>.
+    var:x6 <http://purl.org/frap/about> var:x7.
+    var:x7 a <http://purl.org/frap/Pattern>.
+    var:x7 a ssn:ObservationValue.
+    var:x7 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x7 dul:hasDataValue var:x8.
+    var:x8 math:greaterThan var:x5} => {var:x9 http:methodName "POST".
+    var:x9 http:requestURI "/blind/".
+    var:x9 http:body var:x6.
+    var:x9 http:resp var:x10.
+    var:x10 http:body var:x11.
+    :blind a <http://pending.of/search/Blind>.
+    :blind <http://pending.of/search/state> <http://pending.of/search/opened>.
+    var:x12 a ssn:Observation.
+    var:x12 ssn:observedBy var:x1.
+    var:x12 ssn:observedProperty <http://sweet.jpl.nasa.gov/Light>.
+    var:x12 ssn:observationResult var:x13.
+    var:x13 a ssn:SensorOutput.
+    var:x13 ssn:hasValue var:x11.
+    var:x13 ssn:isProducedBy var:x1.
+    var:x11 a ssn:ObservationValue.
+    var:x11 dul:isClassifiedBy <http://purl.oclc.org/NET/muo/ucum/lux>.
+    var:x11 dul:hasDataValue 21}};
+    r:because [ a r:Parsing; r:source <file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/rules_04/light3_rule.n3>]].
+
+#ENDS 0.148 [sec] TC=8 TP=23 BC=0 BP=10 PM=0 CM=0 FM=0 AM=0
 

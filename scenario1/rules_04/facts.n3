@@ -27,6 +27,9 @@
 
 :lamp a dbpedia:Lamp ;
       dul:hasLocation :room1 .
+      
+:adj_lamp a dbpedia:AjustableLamp ;
+      dul:hasLocation :room1 .
 
 :blind a lookfor:Blind ;
        dul:hasLocation :room1 ;

@@ -17,7 +17,7 @@
 
 {
 
-  :lamp a dbpedia:Lamp ;
+  :adj_lamp a dbpedia:AjustableLamp ;
          dul:hasLocation ?room .
 
   ?light_snr1 a ssn:Sensor;
@@ -30,18 +30,19 @@
          ssn:observedBy ?light_snr1 ;
          ssn:observationResult ?so .
      
-   ?so a ssn:SensorOutput .
+  #?so ssn:hasValue ?ov .
 
-  ?ov #a ssn:ObservationValue ;
-      dul:isClassifiedBy  ucum:lux ;
-      dul:hasDataValue ?last_value .
+  #?ov a ssn:ObservationValue ;
+  #    dul:isClassifiedBy  ucum:lux ;
+  #    dul:hasDataValue ?last_value .
   
   
   # TODO define that the datavalue should be sensoroutput
   ?preference a frap:Preference ;
               frap:about ?pab .
   
-  ?pab a frap:Pattern, ssn:ObservationValue;
+  ?pab a frap:Pattern;
+       a ssn:ObservationValue;
        dul:isClassifiedBy  ucum:lux ;
        dul:hasDataValue ?desired_value .
                  #:filter [
@@ -49,8 +50,6 @@
                  #    frap:operator op:numeric-greater-than ;
                  #    dul:hasDataValue ?last_value .
                  #] .
-   
-   ?desired_value op:greaterThan ?last_value . # op:numeric-greater-than
 }
 =>
 {
@@ -63,7 +62,8 @@
   # instead, maybe they should be put in another rule
   # (with a GET service or without a service, using our middleware)
     
-  _:newLight a ssn:Observation, lookfor:LastValue  ;
+  _:newLight a ssn:Observation ;
+     a lookfor:LastValue ;
      ssn:observedBy ?light_snr1 ;
      ssn:observedProperty  sweet:Light ;
      ssn:observationResult _:sensoroutput .
@@ -75,8 +75,5 @@
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
                #dul:hasDataValue 22 .
-               dul:hasDataValue _:val .
-
-  _:val op:greaterThan ?last_value .
-  
+               dul:hasDataValue ?desired_value .  
 }.

@@ -12,25 +12,24 @@
 @prefix lookfor: <http://pending.of/search/>.
 
 
-# Service 2: blind
+# Service 2: fix light
 
 {
 
-  :blind a lookfor:Blind ;
-         dul:hasLocation ?room ;
-         lookfor:state lookfor:closed .
+  :lamp a dbpedia:Lamp ;
+         dul:hasLocation ?room .
 
   ?light_snr1 a ssn:Sensor;
               ssn:observes sweet:Light ;
               dul:hasLocation ?room .
   
-  ?light a  ssn:Observation ;
-         a  lookfor:LastValue ; # use a rule for that!
+  ?light #a  ssn:Observation ;
+         a lookfor:LastValue ; # use a rule for that!
          ssn:observedProperty  sweet:Light ;
          ssn:observedBy ?light_snr1 ;
          ssn:observationResult ?so .
      
-  ?so ssn:hasValue ?ov .
+   ?so ssn:hasValue ?ov .
 
   ?ov #a ssn:ObservationValue ;
       dul:isClassifiedBy  ucum:lux ;
@@ -67,7 +66,7 @@
   # instead, maybe they should be put in another rule
   # (with a GET service or without a service, using our middleware)
     
-  _:newLight a ssn:Observation;
+  _:newLight a ssn:Observation ;
      ssn:observedBy ?light_snr1 ;
      ssn:observedProperty  sweet:Light ;
      ssn:observationResult _:sensoroutput .
@@ -78,8 +77,6 @@
 
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
-               dul:hasDataValue _:val .
-
-  _:val op:greaterThan ?last_value .
+               dul:hasDataValue 21 .
 
 }.
