@@ -74,9 +74,9 @@
 
   _:outputvalue a ssn:ObservationValue ;
                dul:isClassifiedBy  ucum:lux ;
-               dul:hasDataValue 22 .
-               #dul:hasDataValue _:val .
+               #dul:hasDataValue 22 .
+               dul:hasDataValue _:val .
 
-  #_:val op:greaterThan ?last_value .
+  _:val op:greaterThan ?last_value .
   
 }.
