@@ -1,5 +1,4 @@
 @prefix : <http://example.org/light_scen#>.
-@prefix http: <http://www.w3.org/2011/http#>.
 @prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
 @prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix dbpedia-owl: <http://dbpedia.org/ontology/>.
@@ -7,23 +6,15 @@
 @prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
 @prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix frap: <http://purl.org/frap/>.
-@prefix op: <http://www.w3.org/2007/rif-builtin-predicate#>.
 @prefix lookfor: <http://pending.of/search/>.
 
 
-# Description of the Lamp and the thermometer
 
-:light  a  ssn:Observation ;
-          ssn:observedProperty  sweet:Light .
-
-:thermometer  a  ssn:Observation ;
-          ssn:observedProperty  sweet:Temperature .
-
-:friend  a  foaf:Friend .
+:friend  a  foaf:Friend .   # para introducir ruido
 
 
 
+## SENSORES Y ACTUADORES EN :ROOM1 ##
 
 :lamp a dbpedia:Lamp ;
       dul:hasLocation :room1 .
@@ -31,7 +22,7 @@
 :adj_lamp a dbpedia:AjustableLamp ;
       dul:hasLocation :room1 .
 
-:blind a lookfor:Blind ;
+:blind a dbpedia:Window_blind ;
        dul:hasLocation :room1 ;
        lookfor:state lookfor:closed .
 
@@ -40,6 +31,11 @@
             dul:hasLocation :room1 .
 
 
+
+## OBSERVACIONES ##
+
+
+# Luminosidad
 
 :lightobs000 a  ssn:Observation ;
          a lookfor:LastValue ; # TODO use a rule for LastValue!
@@ -52,3 +48,9 @@ _:obsRes000 a ssn:SensorOutput ;
 _:dval000 a ssn:ObservationValue ;
           dul:isClassifiedBy  ucum:lux ;
           dul:hasDataValue 16 .
+
+
+# Temperatura (para añadir ruido)
+
+:thermometer  a  ssn:Observation ;
+          ssn:observedProperty  sweet:Temperature .

@@ -16,7 +16,7 @@
 
 {
 
-  :blind a lookfor:Blind ;
+  :blind a dbpedia:Window_blind ;
          dul:hasLocation ?room ;
          lookfor:state lookfor:closed .
 
@@ -60,7 +60,7 @@
             http:body ?preference; # and ?last_value and ?light (or if they already exist is not necessary?)
             http:resp [ http:body _:outputvalue ].
 
-  :blind a lookfor:Blind ;
+  :blind a dbpedia:Window_blind ;
 	  lookfor:state lookfor:opened .
 
   # the following triples will not be returned in the response
