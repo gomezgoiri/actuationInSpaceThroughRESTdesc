@@ -1,0 +1,14 @@
+@prefix : <http://example.org/light_scen#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+@prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
+@prefix frap: <http://purl.org/frap/>.
+
+
+:preference a frap:Preference ;
+	    frap:about :pab .
+
+:pab a frap:Pattern ;
+      a ssn:ObservationValue ;
+      dul:isClassifiedBy  ucum:lux ;
+      dul:hasDataValue 20 . 

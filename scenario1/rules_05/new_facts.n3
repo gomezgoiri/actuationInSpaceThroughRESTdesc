@@ -1,0 +1,111 @@
+@prefix tsc: <http://www.morelab.deusto.es/tsc#>.
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasLocation> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observes> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://pending.of/search/state> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedBy> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#hasValue> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.loa.istc.cnr.it/ontologies/DUL.owl#isClassifiedBy> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasDataValue> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#isProducedBy> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedProperty> ?o.
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observationResult> ?o.
+}.
+                

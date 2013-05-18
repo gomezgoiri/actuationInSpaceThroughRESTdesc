@@ -1,0 +1,78 @@
+@prefix : <http://example.org/light_scen#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/>.
+@prefix sweet: <http://sweet.jpl.nasa.gov/>.
+@prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix frap: <http://purl.org/frap/>.
+@prefix op: <http://www.w3.org/2000/10/swap/math#>.
+@prefix lookfor: <http://pending.of/search/>.
+
+
+# Service 1: adjustable lamp
+
+
+{
+
+  :adj_lamp a dbpedia:AjustableLamp ;
+         dul:hasLocation ?room .
+
+  ?light_snr1 a ssn:Sensor;
+              ssn:observes sweet:Light ;
+              dul:hasLocation ?room .
+  
+  ?light #a  ssn:Observation ;
+         a lookfor:LastValue ; # use a rule for that!
+         ssn:observedProperty  sweet:Light ;
+         ssn:observedBy ?light_snr1 ;
+         ssn:observationResult ?so .
+     
+  #?so ssn:hasValue ?ov .
+
+  #?ov a ssn:ObservationValue ;
+  #    dul:isClassifiedBy  ucum:lux ;
+  #    dul:hasDataValue ?last_value .
+  
+  
+  # TODO define that the datavalue should be sensoroutput
+  ?preference a frap:Preference ;
+              frap:about ?pab .
+  
+  ?pab a frap:Pattern;
+       a ssn:ObservationValue;
+       dul:isClassifiedBy  ucum:lux ;
+       dul:hasDataValue ?desired_value .
+                 #:filter [
+                 #    a :Filter;
+                 #    frap:operator op:numeric-greater-than ;
+                 #    dul:hasDataValue ?last_value .
+                 #] .
+}
+=>
+{
+  _:request http:methodName "POST";
+            http:requestURI "/light1/";
+            http:body ?preference;
+            http:resp [ http:body _:outputvalue ].
+            
+  # the following triples will not be returned in the response
+  # instead, maybe they should be put in another rule
+  # (with a GET service or without a service, using our middleware)
+    
+  _:newLight a ssn:Observation ;
+     a lookfor:LastValue ;
+     ssn:observedBy ?light_snr1 ;
+     ssn:observedProperty  sweet:Light ;
+     ssn:observationResult _:sensoroutput .
+     
+   _:sensoroutput a ssn:SensorOutput ;
+	      ssn:hasValue _:outputvalue ;
+	      ssn:isProducedBy ?light_snr1 .
+
+  _:outputvalue a ssn:ObservationValue ;
+               dul:isClassifiedBy  ucum:lux ;
+               dul:hasDataValue ?desired_value .  
+}.

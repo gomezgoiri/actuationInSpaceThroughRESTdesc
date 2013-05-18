@@ -1,0 +1,23 @@
+@prefix : <http://example.org/light_scen#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+@prefix sweet: <http://sweet.jpl.nasa.gov/>.
+@prefix op: <http://www.w3.org/2000/10/swap/math#>.
+
+
+
+{ # Analogy: SPARQL WHERE
+  ?light_snr1 a ssn:Sensor ;
+              ssn:observes sweet:Light ;
+              dul:hasLocation :room1 .
+  ?light a ssn:Observation ;
+	 ssn:observedProperty  sweet:Light ;
+	 ssn:observationResult  ?sensoroutput .
+  ?sensoroutput ssn:hasValue ?outputvalue .
+  ?outputvalue  dul:hasDataValue  ?val .
+  ?val op:greaterThan 20 .
+}
+=>
+{ # Analogy: SPARQL CONSTRUCT
+  ?outputvalue  dul:hasDataValue  ?val .
+}.

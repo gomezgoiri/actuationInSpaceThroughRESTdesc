@@ -1,0 +1,56 @@
+@prefix : <http://example.org/light_scen#>.
+@prefix ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/>.
+@prefix sweet: <http://sweet.jpl.nasa.gov/>.
+@prefix ucum: <http://purl.oclc.org/NET/muo/ucum/>.
+@prefix dul: <http://www.loa.istc.cnr.it/ontologies/DUL.owl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix lookfor: <http://pending.of/search/>.
+
+
+
+:friend  a  foaf:Friend .   # para introducir ruido
+
+
+
+## SENSORES Y ACTUADORES EN :ROOM1 ##
+
+:lamp a dbpedia:Lamp ;
+      dul:hasLocation :room1 .
+      
+:adj_lamp a dbpedia:AjustableLamp ;
+      dul:hasLocation :room1 .
+
+:blind a dbpedia:Window_blind ;
+       dul:hasLocation :room1 ;
+       lookfor:state lookfor:closed .
+
+:light_snr1 a ssn:Sensor;
+            ssn:observes sweet:Light ;
+            dul:hasLocation :room1 .
+
+
+
+## OBSERVACIONES ##
+
+
+# Luminosidad
+
+:lightobs000 a  ssn:Observation ;
+         a lookfor:LastValue ; # TODO use a rule for LastValue!
+         ssn:observedProperty  sweet:Light ;
+         ssn:observedBy :light_snr1 ;
+         ssn:observationResult _:obsRes000 .
+_:obsRes000 a ssn:SensorOutput ;
+            ssn:isProducedBy :light_snr1 ;
+            ssn:hasValue _:dval000 .
+_:dval000 a ssn:ObservationValue ;
+          dul:isClassifiedBy  ucum:lux ;
+          dul:hasDataValue 16 .
+
+
+# Temperatura (para añadir ruido)
+
+:thermometer  a  ssn:Observation ;
+          ssn:observedProperty  sweet:Temperature .
