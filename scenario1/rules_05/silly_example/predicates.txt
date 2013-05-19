@@ -1,0 +1,6 @@
+http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasLocation
+http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observes
+http://purl.org/frap/about
+http://www.loa.istc.cnr.it/ontologies/DUL.owl#isClassifiedBy
+http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasDataValue
+http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedProperty

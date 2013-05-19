@@ -28,7 +28,7 @@ class TSCRulesCreator(object):
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    _:s1 <%s> _:o2 .
+    ?s1 <%s> ?o2 .
 }.
                 """ % (predicate)
 

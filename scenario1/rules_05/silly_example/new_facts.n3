@@ -1,0 +1,80 @@
+@prefix tsc: <http://www.morelab.deusto.es/tsc#>.
+tsc:sub tsc:pred tsc:obj .
+        
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s1 <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasLocation> ?o2 .
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observes> ?o2 .
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s1 <http://purl.org/frap/about> ?o2 .
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s1 <http://www.loa.istc.cnr.it/ontologies/DUL.owl#isClassifiedBy> ?o2 .
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s1 <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasDataValue> ?o2 .
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedProperty> ?o2 .
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    ?s1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o2 .
+}.
+                
