@@ -17,7 +17,7 @@
 
 {
 
-  :adj_lamp a dbpedia:AjustableLamp ;
+  ?adj_lamp a dbpedia:AjustableLamp ;
          dul:hasLocation ?room .
 
   ?light_snr1 a ssn:Sensor;

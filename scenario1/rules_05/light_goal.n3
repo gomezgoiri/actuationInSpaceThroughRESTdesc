@@ -15,7 +15,7 @@
 	 ssn:observationResult  ?sensoroutput .
   ?sensoroutput ssn:hasValue ?outputvalue .
   ?outputvalue  dul:hasDataValue  ?val .
-  ?val op:greaterThan 20 .
+  ?val op:greaterThan 19 .
 }
 =>
 { # Analogy: SPARQL CONSTRUCT

@@ -28,19 +28,22 @@ class TSCRulesCreator(object):
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <%s> ?o.
+    _:s1 <%s> _:o2 .
 }.
-                """ % predicate
+                """ % (predicate)
 
     def create_rules_file(self):
         predicates = self._extract_predicates()
-        fake_pref = "@prefix tsc: <http://www.morelab.deusto.es/tsc#>."
+        fake_pref = """@prefix tsc: <http://www.morelab.deusto.es/tsc#>.
+tsc:sub tsc:pred tsc:obj .
+        """
     
         if self.output_file_path is not None:
             with open (self.output_file_path, "w") as output_file:
                 output_file.write( fake_pref + "\n")
                 for predicate in predicates:
                     output_file.write( self._get_rule(predicate) + "\n")
+                output_file.write( self._get_rule(str(RDF.type)) + "\n")
         else:
             output_file.write( fake_pref + "\n")
             for predicate in predicates:

@@ -1,4 +1,6 @@
 @prefix tsc: <http://www.morelab.deusto.es/tsc#>.
+tsc:sub tsc:pred tsc:obj .
+        
 
 {
     ?subject ?predicate ?object .
@@ -7,7 +9,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasLocation> ?o.
+    _:s1 <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasLocation> _:o2 .
 }.
                 
 
@@ -18,7 +20,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observes> ?o.
+    _:s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observes> _:o2 .
 }.
                 
 
@@ -29,7 +31,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://pending.of/search/state> ?o.
+    _:s1 <http://pending.of/search/state> _:o2 .
 }.
                 
 
@@ -40,7 +42,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedBy> ?o.
+    _:s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedBy> _:o2 .
 }.
                 
 
@@ -51,7 +53,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#hasValue> ?o.
+    _:s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#hasValue> _:o2 .
 }.
                 
 
@@ -62,7 +64,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.loa.istc.cnr.it/ontologies/DUL.owl#isClassifiedBy> ?o.
+    _:s1 <http://www.loa.istc.cnr.it/ontologies/DUL.owl#isClassifiedBy> _:o2 .
 }.
                 
 
@@ -73,7 +75,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasDataValue> ?o.
+    _:s1 <http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasDataValue> _:o2 .
 }.
                 
 
@@ -84,7 +86,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#isProducedBy> ?o.
+    _:s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#isProducedBy> _:o2 .
 }.
                 
 
@@ -95,7 +97,7 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedProperty> ?o.
+    _:s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observedProperty> _:o2 .
 }.
                 
 
@@ -106,6 +108,17 @@
 {
     # something to call TSC
     _:tsc tsc:primitive tsc:query . 
-    ?s <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observationResult> ?o.
+    _:s1 <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#observationResult> _:o2 .
+}.
+                
+
+{
+    ?subject ?predicate ?object .
+}
+=>
+{
+    # something to call TSC
+    _:tsc tsc:primitive tsc:query . 
+    _:s1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:o2 .
 }.
                 
