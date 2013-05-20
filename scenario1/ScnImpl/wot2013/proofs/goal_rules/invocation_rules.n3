@@ -17,9 +17,9 @@
 
 { # Analogy: SPARQL WHERE
   ?lemma http:request {
-   ?expr => ?implication .
+   ?premises => ?conclusion .
   } .
-  ?implication log:includes { ?s ?p ?o . } .
+  ?conclusion log:includes { ?s ?p ?o . } .
 }
 =>
 { # Analogy: SPARQL CONSTRUCT
