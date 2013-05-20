@@ -15,6 +15,7 @@ class UsefulInformationExtractor(object):
                    "bindings": ("rest_bindings.n3", "bindings.txt"),
                    "lemmas": ("lemma_precedences.n3", "lemmas.txt"),
                    "services": ("rest_services.n3", "services.txt"),
+                   "rest_services": ("rest_services.n3", "services.txt"),
                    }
     
     def __init__(self, input_file, output_folder, euler_path):

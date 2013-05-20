@@ -3,6 +3,7 @@ Created on May 20, 2013
 
 @author: tulvur
 '''
+import re
 import subprocess
 from os import remove
 from tempfile import mkdtemp
@@ -76,6 +77,14 @@ class ActuationStarterNode(object):
         new_g = Graph()
         new_g.add(( Literal("true", datatype=XSD.boolean), log_ns.implies, premise) )
         new_g.serialize( temporary_file_path, format="n3" )
+        self._substitute_vars_for_fake_uris( temporary_file_path )
+        
+    def _substitute_vars_for_fake_uris(self, file_path):
+        fake_prefix = r"@prefix search: <http://search.in/tsc#>."
+        with open(file_path, 'r+') as infile:
+            data = re.sub('\?(?P<var_name>\w+)', 'search:\g<var_name>', infile.read())
+            with open(file_path, 'r+') as outfile:
+                outfile.write( fake_prefix + "\n" + data)
         
     def create_plan(self):
         call = ['java', '-jar', self.euler_path + 'Euler.jar' ]
