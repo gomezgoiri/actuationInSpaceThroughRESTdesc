@@ -17,19 +17,29 @@
 @prefix n3: <http://www.w3.org/2004/06/rei#>.
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
 
-fake:lemma1 r:var "http://localhost/var#x0".
-fake:lemma1 r:bound "http://example.org/light_scen#light".
-fake:lemma1 r:var "http://localhost/var#x1".
-fake:lemma1 r:bound r:Existential.
-fake:lemma1 r:bound "_:sk3".
-fake:lemma1 r:var "http://localhost/var#x2".
-fake:lemma1 r:bound "_:sk2".
-fake:lemma2 r:var "http://localhost/var#x0".
-fake:lemma2 r:bound "http://example.org/light_scen#light".
-fake:lemma3 r:var "http://localhost/var#x0".
-fake:lemma3 r:bound "http://example.org/light_scen#light".
-fake:lemma4 r:var "http://localhost/var#x0".
-fake:lemma4 r:bound "http://example.org/light_scen#light".
+fake:lemma1 r:binding _:sk0.
+_:sk0 r:var "http://localhost/var#x0".
+_:sk0 r:bound "http://example.org/light_scen#light".
+fake:lemma1 r:binding _:sk1.
+_:sk1 r:var "http://localhost/var#x1".
+_:sk1 r:bound r:Existential.
+fake:lemma1 r:binding _:sk2.
+_:sk2 r:var "http://localhost/var#x1".
+_:sk2 r:bound "_:sk3".
+fake:lemma1 r:binding _:sk3.
+_:sk3 r:var "http://localhost/var#x2".
+_:sk3 r:bound r:Existential.
+fake:lemma1 r:binding _:sk4.
+_:sk4 r:var "http://localhost/var#x2".
+_:sk4 r:bound "_:sk2".
+fake:lemma2 r:binding _:sk5.
+_:sk5 r:var "http://localhost/var#x0".
+_:sk5 r:bound "http://example.org/light_scen#light".
+fake:lemma3 r:binding _:sk6.
+_:sk6 r:var "http://localhost/var#x0".
+_:sk6 r:bound "http://example.org/light_scen#light".
+fake:lemma4 r:binding _:sk7.
+_:sk7 r:var "http://localhost/var#x0".
+_:sk7 r:bound "http://example.org/light_scen#light".
 
 #ENDS 0.068 [sec] TC=8 TP=16 BC=0 BP=9 PM=0 CM=0 FM=0 AM=0
-

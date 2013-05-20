@@ -24,6 +24,8 @@
 }
 =>
 { # Analogy: SPARQL CONSTRUCT
-  ?lemma r:var ?var ;
-	  r:bound ?bound .
+  ?lemma r:binding [ 
+  	  r:var ?var ;
+	  r:bound ?bound
+  ]
 }.

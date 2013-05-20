@@ -85,12 +85,10 @@ class RESTServicesParser(object):
         rdf_graph = Graph()
         rdf_graph.parse(bindings_file_path, format="n3")
         
-        for lemma, rest_call in self.calls.iteritems():
-            for t in rdf_graph.triples((lemma, r_ns.var, None)):
-                var, bound = None, None
-                
-                var = t[2]
-                bound = rdf_graph.triples((lemma, r_ns.bound, None)).next()[2]
+        for lemma, rest_call in self.calls.iteritems():            
+            for binding in rdf_graph.objects(lemma, r_ns.binding):
+                var = rdf_graph.objects(binding, r_ns.var).next()
+                bound = rdf_graph.objects(binding, r_ns.bound).next()
                     
                 if var is None or bound is None:
                     print "Warning: no 'var' or 'bound' for the binding of lemma %s"%(lemma)
