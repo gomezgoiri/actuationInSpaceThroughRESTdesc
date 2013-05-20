@@ -12,9 +12,8 @@
 @prefix lookfor: <http://pending.of/search/>.
 @prefix tsc: <http://www.morelab.deusto.es/tsc#>.
 
-{
+
 true
-}
 =>
 {
   # something to call TSC
