@@ -9,6 +9,7 @@ from optparse import OptionParser
 from rdflib import Graph, Namespace
 import networkx as nx
 import matplotlib.pyplot as plt
+from wot2013.proofs.extract_info import UsefulInformationExtractor
 from wot2013.proofs.interpretation.rest_parser import RESTServicesParser
 
 r_ns = Namespace("http://www.w3.org/2000/10/swap/reason#")
@@ -19,36 +20,10 @@ class LemmaPrecedencesGraph(object):
     def __init__(self, file_path):
         self.rdf_graph = Graph()
         self.rdf_graph.parse(file_path, format="n3")
-        #rdf_str = self._delete_blank_nodes(file_path)
-        #self.rdf_graph.parse(StringIO(rdf_str), format="n3")
-        #print self.rdf_graph.serialize(format="n3")
         self.filter = None
     
-    def add_filter(self, rest_calls_dict):
+    def add_call_repetition_filter(self, rest_calls_dict):
         self.filter = rest_calls_dict
-    
-    def _delete_blank_nodes(self, file_path):
-        with open (file_path, "r") as myfile:
-            #data = myfile.read().replace('_:sk', 'http://anon/') # wrong: "<" and ">" are missing
-            data= re.sub('_:sk(?P<num>\d+)', '<http://anon/\g<num>>', myfile.read())
-            return data
-    
-    def export_to_gml(self, output_file):
-        # from http://networkx.github.io/documentation/latest/examples/drawing/edge_colormap.html
-        g = self.create_graph()
-        nx.write_gml(g, output_file)
-        #nx.write_edgelist(g, output_file)
-    
-    def export_to_image(self, output_file):
-        # from http://networkx.github.io/documentation/latest/examples/drawing/edge_colormap.html
-        g = self.create_graph()
-        #pos = nx.spectral_layout(g)
-        pos = nx.circular_layout(g)
-        #pos = nx.spring_layout(g)
-        colors = '#6aaed6' #range(len(g.edges()))
-        nx.draw( g,
-                 pos, node_size=0, alpha=0.4, edge_color=colors, node_color='#A0CBE2', edge_cmap=plt.cm.Blues, width=2) #, node_color='#A0CBE2' , with_labels=False)
-        plt.savefig(output_file)
     
     def _is_rest_call(self, new_child_node):
         return new_child_node in self.filter
@@ -70,7 +45,7 @@ class LemmaPrecedencesGraph(object):
                 return self._is_repeated( added_children, child_node )
         return False
     
-    def create_graph(self):
+    def create_nx_graph(self):
         #graph = nx.Graph()
         graph = nx.DiGraph()
         
@@ -99,12 +74,28 @@ class LemmaPrecedencesGraph(object):
             if root is not "source" and leave is not "target":  
                 graph.add_edge( "source", root )
         
-        return graph
-             
-    def _get_shortest_path(self, goal):
-        print self._get_targets(goal)
-        g = self._create_graph()
-        print(nx.shortest_path(g, source="http://anon/0", target="http://anon/3"))
+        self.graph = graph
+    
+    def to_gml(self, output_file):
+        # from http://networkx.github.io/documentation/latest/examples/drawing/edge_colormap.html
+        nx.write_gml(self.graph, output_file)
+        #nx.write_edgelist(self.graph, output_file)
+    
+    def to_image(self, output_file):
+        # from http://networkx.github.io/documentation/latest/examples/drawing/edge_colormap.html
+        #pos = nx.spectral_layout(self.graph)
+        pos = nx.circular_layout(self.graph)
+        #pos = nx.spring_layout(self.graph)
+        colors = '#6aaed6' #range(len(self.graph.edges()))
+        nx.draw( self.graph,
+                 pos, node_size=0, alpha=0.4, edge_color=colors, node_color='#A0CBE2', edge_cmap=plt.cm.Blues, width=2) #, node_color='#A0CBE2' , with_labels=False)
+        plt.savefig(output_file)
+
+    def get_shortest_path(self):
+        return nx.shortest_path(self.graph, source="source", target="target")
+    
+    def get_all_paths(self):
+        return nx.all_simple_paths(self.graph, source="source", target="target")
         
 
 if __name__ == '__main__':
@@ -125,11 +116,12 @@ if __name__ == '__main__':
     rg = LemmaPrecedencesGraph( options.input )
     
     if options.filter_path is not None:
-        rsp = RESTServicesParser( options.filter_path + "/services.txt",
-                              options.filter_path + "/bindings.txt" )
-        rg.add_filter( rsp.calls )
+        rsp = RESTServicesParser( options.filter_path + "/" + UsefulInformationExtractor.get_output_filename("services"),
+                              options.filter_path + "/" + UsefulInformationExtractor.get_output_filename("bindings") )
+        rg.add_call_repetition_filter( rsp.calls )
     
-    rg.export_to_image( output_file = options.output + "/lemma_precedences.png" )
-    rg.export_to_gml( output_file = options.output + "/lemma_precedences.gml" )
+    rg.create_nx_graph()
+    rg.to_image( output_file = options.output + "/lemma_precedences.png" )
+    rg.to_gml( output_file = options.output + "/lemma_precedences.gml" )
     
     #rg._get_shortest_path( goal = (URIRef("file:///home/tulvur/Downloads/test/image_ex/myphoto.jpg"), dbpedia_namespace["thumbnail"], None))

@@ -3,13 +3,16 @@ Created on May 20, 2013
 
 @author: tulvur
 '''
-import os
 import subprocess
+from os import remove
 from tempfile import mkdtemp
-from os.path import basename
-from rdflib import Graph, Namespace, Literal, RDF, RDFS, XSD
+from os.path import basename, splitext
+from rdflib import Graph, Namespace, Literal, RDF, RDFS
+from rdflib.namespace import XSD
 
 from wot2013.proofs.extract_info import UsefulInformationExtractor
+from wot2013.proofs.interpretation.graphs import LemmaPrecedencesGraph
+from wot2013.proofs.interpretation.rest_parser import RESTServicesParser
 
 
 
@@ -43,7 +46,7 @@ class ActuationStarterNode(object):
     def _get_temporary_file_path(self, original_file_path):
         # now you can call it directly with basename
         filename_with_extension = basename(original_file_path)
-        filename_without_extension = os.path.splitext(filename_with_extension)[0]
+        filename_without_extension = splitext(filename_with_extension)[0]
         return self.output_folder + "/" + filename_without_extension + "_activator.n3"
     
     def _create_fake_rules(self):
@@ -86,4 +89,21 @@ class ActuationStarterNode(object):
     
     def process_plan(self):
         uie = UsefulInformationExtractor(self.output_folder + "/plan.n3", self.output_folder, self.euler_path)
-        uie.extract()
+        uie.extract_all()
+        
+        self.lemma_graph = LemmaPrecedencesGraph(self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("precedences"))
+        
+        rsp = RESTServicesParser( self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("services"),
+                                  self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("bindings") )
+        self.lemma_graph.add_call_repetition_filter( rsp.calls )
+        self.lemma_graph.create_nx_graph()
+        #self.lemma_graph.to_image( output_file = options.output + "/lemma_precedences.png" )
+        #self.lemma_graph.to_gml( output_file = self.output_folder + "/lemma_precedences.gml" )
+    
+    def discard_paths(self):
+        """ Discards paths with cannot be followed because we do not have input data"""
+        for path in self.lemma_graph.get_all_paths():
+            for node in path:
+                print node
+        
+        #remove(self.output_folder + "/plan.n3")

@@ -6,6 +6,10 @@ def unblank_lemmas(input_file_path, output_file_path):
     fake_prefix = r"@prefix fake: <http://fake#>."
     with open (input_file_path, "r") as input_file:
         data = re.sub('_:lemma(?P<num>\d+)', 'fake:lemma\g<num>', input_file.read())
+        # Or...
+        # g = Graph()
+        # g.parse( StringIO( fake_prefix + "\n" + data ), format="n3" )
+        # print g.serialize(format="n3")
         with open (output_file_path, "w") as output_file:
             output_file.write( fake_prefix + "\n" + data)
 
