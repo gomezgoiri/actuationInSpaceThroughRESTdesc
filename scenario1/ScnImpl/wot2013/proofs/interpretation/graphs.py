@@ -42,8 +42,8 @@ class LemmaPrecedencesGraph(object):
     def export_to_image(self, output_file):
         # from http://networkx.github.io/documentation/latest/examples/drawing/edge_colormap.html
         g = self.create_graph()
-        pos = nx.spectral_layout(g)
-        #pos = nx.circular_layout(g)
+        #pos = nx.spectral_layout(g)
+        pos = nx.circular_layout(g)
         #pos = nx.spring_layout(g)
         colors = '#6aaed6' #range(len(g.edges()))
         nx.draw( g,
@@ -84,7 +84,21 @@ class LemmaPrecedencesGraph(object):
                     
                     graph.add_node( parent_node )
                     graph.add_node( child_node )
-                    graph.add_edge( parent_node, child_node )        
+                    # lemma1 because lemma2, means that lemma2 -> lemma1
+                    graph.add_edge( child_node, parent_node )
+        
+        # create starting point and ending point and link it with leaves
+        graph.add_node( "source" )
+        graph.add_node( "target" )
+        
+        for leave in (n for n,d in graph.out_degree_iter() if d==0):
+            if leave is not "source" and leave is not "target":
+                graph.add_edge( leave, "target" )
+            
+        for root in (n for n,d in graph.in_degree_iter() if d==0):
+            if root is not "source" and leave is not "target":  
+                graph.add_edge( "source", root )
+        
         return graph
              
     def _get_shortest_path(self, goal):
