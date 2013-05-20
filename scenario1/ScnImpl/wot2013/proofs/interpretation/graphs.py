@@ -25,6 +25,11 @@ class LemmaPrecedencesGraph(object):
     def add_call_repetition_filter(self, rest_calls_dict):
         self.filter = rest_calls_dict
     
+    def get_rest_call(self, node):
+        if node in self.filter:
+            return self.filter[node]
+        return None
+    
     def _is_rest_call(self, new_child_node):
         return new_child_node in self.filter
     

@@ -104,6 +104,10 @@ class ActuationStarterNode(object):
         """ Discards paths with cannot be followed because we do not have input data"""
         for path in self.lemma_graph.get_all_paths():
             for node in path:
-                print node
+                rest = self.lemma_graph.get_rest_call(node)
+                if rest is None:
+                    print "No service for %s" % node
+                else:
+                    print rest
         
         #remove(self.output_folder + "/plan.n3")
