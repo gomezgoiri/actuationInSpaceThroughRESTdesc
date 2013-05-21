@@ -4,9 +4,9 @@ Created on May 20, 2013
 @author: tulvur
 '''
 
+from rdflib import Graph, RDF, RDFS
 from wot2013.tsc.space_manager import SpaceManager
 from wot2013.tsc.virtual.nodes import VirtualNode
-from rdflib import RDF, RDFS
 
 
 class VirtualSpaceManager(SpaceManager):
@@ -47,7 +47,7 @@ class VirtualSpaceManager(SpaceManager):
     
     
     def query_tsc(self, template):
-        ret = []
+        ret = Graph()
         looking_for = str(template[1])
         for name, predicates in self.get_clues()["predicates"].iteritems():
             query_this_node = False
@@ -64,5 +64,6 @@ class VirtualSpaceManager(SpaceManager):
             
             if query_this_node:
                 for graph in self.nodes[name]:
-                    ret.append( list(graph.triples(template)) )
+                    for triple in graph.triples(template):
+                        ret.add( triple )
         return ret

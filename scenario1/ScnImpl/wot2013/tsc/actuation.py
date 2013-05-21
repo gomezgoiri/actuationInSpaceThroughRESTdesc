@@ -13,7 +13,7 @@ from rdflib.namespace import XSD
 
 from wot2013.proofs.extract_info import UsefulInformationExtractor
 from wot2013.proofs.interpretation.graphs import LemmaPrecedencesGraph
-from wot2013.proofs.interpretation.rest_parser import RESTServicesParser
+from wot2013.proofs.interpretation.lemma_parser import LemmaParser
 
 
 
@@ -102,9 +102,9 @@ class ActuationStarterNode(object):
         
         self.lemma_graph = LemmaPrecedencesGraph(self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("precedences"))
         
-        rsp = RESTServicesParser( self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("services"),
+        lp = LemmaParser( self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("services"),
                                   self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("bindings") )
-        self.lemma_graph.add_call_repetition_filter( rsp.calls )
+        self.lemma_graph.add_lemmas_info( lp.lemmas )
         self.lemma_graph.create_nx_graph()
         #self.lemma_graph.to_image( output_file = options.output + "/lemma_precedences.png" )
         #self.lemma_graph.to_gml( output_file = self.output_folder + "/lemma_precedences.gml" )
