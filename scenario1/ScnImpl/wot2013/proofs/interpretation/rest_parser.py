@@ -64,20 +64,20 @@ class RESTServicesParser(object):
                 self.calls[t[0]] = rc
     
     def _process_lemmas_rest(self, lemma_rest):
-        for t in lemma_rest.triples((None, log_ns.implies, None)):
+        for conclusion in lemma_rest.objects(None, log_ns.implies):
             request_subject = None
             ru = None
-            for t2 in t[2].triples((None, http_ns.requestURI, None)):
-                request_subject = t2[0]
-                ru = t2[2]
+            for t in conclusion.triples((None, http_ns.requestURI, None)):
+                request_subject = t[0]
+                ru = t[2]
                 break
             m = None
-            for t2 in t[2].triples((request_subject, http_ns.methodName, None)):
-                m = t2[2]
+            for method_name in conclusion.objects(request_subject, http_ns.methodName):
+                m = method_name
                 break
             b = None
-            for t2 in t[2].triples((request_subject, http_ns.body, None)):
-                b = t2[2]
+            for body in conclusion.objects(request_subject, http_ns.body):
+                b = body
                 break
             return RESTCall(m, ru, b)
     
