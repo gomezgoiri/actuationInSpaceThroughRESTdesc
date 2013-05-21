@@ -5,9 +5,27 @@ Created on May 21, 2013
 '''
 
 import unittest
+from rdflib import URIRef
+from wot2013.proofs.interpretation.variable import Variable, var_ns
 from wot2013.proofs.interpretation.bindings_parser import Binding
 from wot2013.proofs.interpretation.rest_parser import RESTCall, RESTServicesParser
 from wot2013.proofs.interpretation.lemma_parser import Lemma
+
+
+
+class testVariable(unittest.TestCase):
+    
+    def test_urize(self):
+        var = Variable("x4")
+        self.assertEquals( URIRef("http://localhost/var#x4"), var.urize() )
+        
+    def test_create_URIRefs(self):
+        self.assertIsNone( Variable.create( URIRef("http://fakeuri/element1") ) )
+        self.assertEquals( "x3", Variable.create( var_ns.x3 ).name )
+        
+    def test_create_strings(self):
+        self.assertIsNone( Variable.create( "http://fakeuri/element2" ) )
+        self.assertEquals( "varN", Variable.create( "http://localhost/var#varN" ).name )
 
 
 

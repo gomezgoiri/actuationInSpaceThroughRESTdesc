@@ -4,8 +4,8 @@ Created on Apr 30, 2013
 @author: tulvur
 '''
 from optparse import OptionParser
-from rdflib import Graph, Namespace
-
+from rdflib import Graph, Namespace, URIRef
+from wot2013.proofs.interpretation.variable import Variable
 
 r_ns = Namespace("http://www.w3.org/2000/10/swap/reason#")
 
@@ -13,16 +13,17 @@ r_ns = Namespace("http://www.w3.org/2000/10/swap/reason#")
 class Binding(object):
     
     def __init__(self, variable, bound):
-        self.variable = self.get_var_name( str(variable) )
-        self.bound = self.get_var_name( str(bound) )
-        
-    def get_var_name(self, binding_name):
-        """if 'binding_name' is "http://localhost/var#x0" or ?x0, simply take x0"""
-        prefs = ("http://localhost/var#", "?")
-        for pref in prefs:
-            if binding_name.startswith(pref):
-                return binding_name[len(pref):]
-        return binding_name
+        self.variable = Variable.create( variable )
+        self.bound = self.get_proper_bound( bound ) # should be URIRef?
+    
+    def get_proper_bound(self, bound):
+        ret = Variable.create(bound)
+        if ret is None:
+            if bound.startswith("http://"):
+                ret = URIRef( bound )
+            else: # TODO literal
+                return bound
+        return ret
     
     def __eq__(self, other_binding):
         return self.variable == other_binding.variable and self.bound == other_binding.bound

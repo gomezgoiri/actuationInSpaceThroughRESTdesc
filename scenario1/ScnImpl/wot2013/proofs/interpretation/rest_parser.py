@@ -6,6 +6,7 @@ Created on Apr 30, 2013
 
 from optparse import OptionParser
 from rdflib import Graph, Namespace
+from wot2013.proofs.interpretation.variable import Variable
 
 r_ns = Namespace("http://www.w3.org/2000/10/swap/reason#")
 http_ns = Namespace("http://www.w3.org/2011/http#")
@@ -16,15 +17,7 @@ class RESTCall(object):
     def __init__(self, method, request_uri, var_body):
         self.method = method
         self.request_uri = request_uri
-        self.var_body = self.get_var_name(var_body) # its name can be different and still be the same variable
-    
-    def get_var_name(self, binding_name):
-        """if 'binding_name' is "http://localhost/var#x0" or ?x0, simply take x0"""
-        prefs = ("http://localhost/var#", "?")
-        for pref in prefs:
-            if binding_name.startswith(pref):
-                return binding_name[len(pref):]
-        return binding_name
+        self.var_body = Variable.create(var_body)
     
     def __repr__(self):
         return "r(m: %s, ru: %s, body: %s)" % (self.method, self.request_uri, self.var_body)

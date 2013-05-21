@@ -8,6 +8,7 @@ from optparse import OptionParser
 from rdflib import Namespace
 from wot2013.proofs.interpretation.bindings_parser import BindingsParser
 from wot2013.proofs.interpretation.rest_parser import RESTServicesParser
+from wot2013.proofs.interpretation.evidence_templates_parser import EvidenceTemplatesParser
 
 r_ns = Namespace("http://www.w3.org/2000/10/swap/reason#")
 http_ns = Namespace("http://www.w3.org/2011/http#")
@@ -71,7 +72,7 @@ class LemmaParser(object):
       * rest services
     """
     
-    def __init__(self, rest_file_path, bindings_path):
+    def __init__(self, rest_file_path, bindings_path, evidences_path):
         self.lemmas = {}
         
         bp = BindingsParser( bindings_path ) 
@@ -83,6 +84,11 @@ class LemmaParser(object):
         for lemma, rest in rp.calls.iteritems():
             self._init_lemma_if_needed(lemma)
             self.lemmas[lemma].rest = rest
+            
+        etp = EvidenceTemplatesParser( evidences_path )
+        for lemma, templates in etp.templates_by_lemma.iteritems():
+            self._init_lemma_if_needed(lemma)
+            self.lemmas[lemma].evicence_templates = templates
     
     def _init_lemma_if_needed(self, lemma):
         if lemma not in self.lemmas:
@@ -92,9 +98,11 @@ class LemmaParser(object):
 if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option("-i", "--rest_input", dest="input", default="../../../files/services.txt",
-                      help="File to process")
+                      help="REST services file.")
     parser.add_option("-b", "--bindings", dest="bindings", default="../../../files/bindings.txt",
-                      help="File to process")
+                      help="Bindings file.")
+    parser.add_option("-e", "--evidences", dest="evidences", default="../../../files/evidences.txt",
+                      help="Evidences file.")
     (options, args) = parser.parse_args()
     
     lp = LemmaParser( options.input, options.bindings )

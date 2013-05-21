@@ -1,9 +1,10 @@
 import re
 from optparse import OptionParser
+from wot2013.proofs.interpretation.variable import fake_ns
 
 
 def unblank_lemmas(input_file_path, output_file_path):
-    fake_prefix = r"@prefix fake: <http://fake#>."
+    fake_prefix = r"@prefix fake: <%s>." % fake_ns
     with open (input_file_path, "r") as input_file:
         data = re.sub('_:lemma(?P<num>\d+)', 'fake:lemma\g<num>', input_file.read())
         # Or...

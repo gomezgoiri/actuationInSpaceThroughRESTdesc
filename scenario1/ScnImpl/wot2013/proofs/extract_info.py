@@ -15,7 +15,7 @@ class UsefulInformationExtractor(object):
                    "bindings": ("rest_bindings.n3", "bindings.txt"),
                    "lemmas": ("lemma_precedences.n3", "lemmas.txt"),
                    "services": ("rest_services.n3", "services.txt"),
-                   "rest_services": ("rest_services.n3", "services.txt"),
+                   "evidences": ("non_lemma_evidences.n3", "evidences.txt"),
                    }
     
     def __init__(self, input_file, output_folder, euler_path):
@@ -53,11 +53,9 @@ class UsefulInformationExtractor(object):
         self.extract_item("precedences")
         self.extract_item("bindings")
         self.extract_item("services")
+        self.extract_item("evidences")
         
         self.stop()
-        # no longer useful since it is parsed using rest_parser module 
-        #qe = QueryExecutor( self.output_folder + "/services.txt", self.euler_path )
-        #qe.execute_and_save( self.path_to_goals + "/invocation_rules.n3", self.output_folder + "/invocations.txt" )
 
 
 if __name__ == '__main__':

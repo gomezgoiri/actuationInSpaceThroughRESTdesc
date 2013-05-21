@@ -14,7 +14,7 @@ from rdflib.namespace import XSD
 from wot2013.proofs.extract_info import UsefulInformationExtractor
 from wot2013.proofs.interpretation.graphs import LemmaPrecedencesGraph
 from wot2013.proofs.interpretation.lemma_parser import LemmaParser
-
+from wot2013.proofs.interpretation.variable import fake_ns
 
 
 log_ns = Namespace("http://www.w3.org/2000/10/swap/log#")
@@ -80,9 +80,9 @@ class ActuationStarterNode(object):
         self._substitute_vars_for_fake_uris( temporary_file_path )
         
     def _substitute_vars_for_fake_uris(self, file_path):
-        fake_prefix = r"@prefix search: <http://search.in/tsc#>."
+        fake_prefix = r"@prefix fake: <%s>." % fake_ns
         with open(file_path, 'r+') as infile:
-            data = re.sub('\?(?P<var_name>\w+)', 'search:\g<var_name>', infile.read())
+            data = re.sub('\?(?P<var_name>\w+)', 'fake:\g<var_name>', infile.read())
             with open(file_path, 'r+') as outfile:
                 outfile.write( fake_prefix + "\n" + data)
         
@@ -103,7 +103,8 @@ class ActuationStarterNode(object):
         self.lemma_graph = LemmaPrecedencesGraph(self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("precedences"))
         
         lp = LemmaParser( self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("services"),
-                                  self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("bindings") )
+                          self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("bindings"),
+                          self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("evidences") )
         self.lemma_graph.add_lemmas_info( lp.lemmas )
         self.lemma_graph.create_nx_graph()
         #self.lemma_graph.to_image( output_file = options.output + "/lemma_precedences.png" )
