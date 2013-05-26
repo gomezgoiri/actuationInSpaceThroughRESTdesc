@@ -3,6 +3,7 @@ from optparse import OptionParser
 from wot2013.proofs.interpretation.variable import fake_ns
 
 
+# TODO Fuck, I should have used Node.skolemize(authority='http://rdlib.net/') !
 def unblank_lemmas(input_file_path, output_file_path):
     fake_prefix = r"@prefix fake: <%s>." % fake_ns
     with open (input_file_path, "r") as input_file:

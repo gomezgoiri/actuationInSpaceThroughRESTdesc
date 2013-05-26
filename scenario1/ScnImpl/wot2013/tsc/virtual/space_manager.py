@@ -63,7 +63,7 @@ class VirtualSpaceManager(SpaceManager):
                         break
             
             if query_this_node:
-                for graph in self.nodes[name]:
+                for graph in self.nodes[name].graphs:
                     for triple in graph.triples(template):
                         ret.add( triple )
         return ret

@@ -11,10 +11,11 @@ from os.path import basename, splitext
 from rdflib import Graph, Namespace, Literal, RDF, RDFS
 from rdflib.namespace import XSD
 
+from wot2013.proofs.interpretation.variable import fake_ns
 from wot2013.proofs.extract_info import UsefulInformationExtractor
 from wot2013.proofs.interpretation.graphs import LemmaPrecedencesGraph
 from wot2013.proofs.interpretation.lemma_parser import LemmaParser
-from wot2013.proofs.interpretation.variable import fake_ns
+
 
 
 log_ns = Namespace("http://www.w3.org/2000/10/swap/log#")
@@ -110,14 +111,39 @@ class ActuationStarterNode(object):
         #self.lemma_graph.to_image( output_file = options.output + "/lemma_precedences.png" )
         #self.lemma_graph.to_gml( output_file = self.output_folder + "/lemma_precedences.gml" )
     
-    def discard_paths(self):
-        """ Discards paths with cannot be followed because we do not have input data"""
+    def discard_paths(self, space_cache):
+        """Discards paths which cannot be followed because we do not have input data"""        
+        i = 0
         for path in self.lemma_graph.get_all_paths():
+            print "PATH %d" % i
+            i += 1
+            
             for node in path:
                 rest = self.lemma_graph.get_rest_call(node)
                 if rest is None:
                     print "No service for %s" % node
                 else:
-                    print rest
+                    for template in rest.evicence_templates:
+                        space_cache.add_query( template.get_template() )
+                    space_cache.launch_requests()
+                    #print rest
+                    print "------"
+                    print space_cache.cache.serialize(self.output_folder + "/cached.n3", format="n3")
+                    
+                    self._create_fake_query_rule( rest.evicence_templates )
+    
+    def _create_fake_query_rule(self, templates):
+        tpls_to_str = ""
+        for t in templates:
+            tpls_to_str += t.n3()
         
-        #remove(self.output_folder + "/plan.n3")
+        fq = """
+{
+    %s
+} => {
+    %s
+}            
+        """ % (tpls_to_str, tpls_to_str)
+        
+        with open(self.output_folder + "/query.n3", 'w') as fil:
+            fil.write(fq)

@@ -30,8 +30,11 @@ class Template(object):
                  self._substitute_with_None_if_variable(self.predicate),
                  self._substitute_with_None_if_variable(self.object) )
     
+    def n3(self):
+        return "%s %s %s . \n" % (self.subject.n3(), self.predicate.n3(), self.object.n3())
+    
     def __repr__(self):
-        return "t( %s, %s, %s)" % ( self.subject, self.predicate, self.object )
+        return "t(%s, %s, %s)" % ( self.subject, self.predicate, self.object )
 
 
 class EvidenceTemplatesParser(object):   

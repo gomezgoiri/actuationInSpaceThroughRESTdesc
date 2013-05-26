@@ -35,5 +35,11 @@ class Variable(object):
                 return Variable( possible_var[ len(pref):] )
         else: return None
     
+    def n3(self):
+        return self.__repr__()
+    
+    def __str__(self):
+        return self.__repr__()
+    
     def __repr__(self):
         return "?%s" % self.name
