@@ -4,7 +4,6 @@ Created on May 20, 2013
 @author: tulvur
 '''
 import re
-import subprocess
 from os import remove
 from tempfile import mkdtemp
 from os.path import basename, splitext
@@ -24,19 +23,19 @@ op_ns = Namespace("http://www.w3.org/2000/10/swap/math#")
 
 class ActuationStarterNode(object):
     
-    def __init__(self, query_goal_path, output_folder, euler_path):
+    def __init__(self, query_goal_path, output_folder, reasoner):
         self.query_goal_path = query_goal_path
         self.output_folder = mkdtemp(dir=output_folder)
-        self.euler_path = euler_path
+        self.reasoner = reasoner
     
     def add_clues(self, clues):
         self.rule_paths = self._extract_rules(clues["rule_files"])
         self.predicates = self._extract_predicates(clues["predicates"])
         
     def _extract_rules(self, rules_by_node):
-        rules = set()
+        rules = []
         for _, ruls in rules_by_node.iteritems():
-            rules = rules.union(ruls)
+            rules += ruls
         return rules
 
     def _extract_predicates(self, predicates_by_node):
@@ -88,17 +87,13 @@ class ActuationStarterNode(object):
                 outfile.write( fake_prefix + "\n" + data)
         
     def create_plan(self):
-        call = ['java', '-jar', self.euler_path + 'Euler.jar' ]
-        call += self.rule_paths
-        call += self._create_fake_rules()
-        call += [ '--query', self.query_goal_path ]
-        
-        output = subprocess.check_output( call )
+        input_files = self.rule_paths + self._create_fake_rules()
+        output = self.reasoner.query_proofs( input_files, self.query_goal_path )
         with open (self.output_folder + "/plan.n3", "w") as output_file:
             output_file.write( output )
     
     def process_plan(self):
-        uie = UsefulInformationExtractor(self.output_folder + "/plan.n3", self.output_folder, self.euler_path)
+        uie = UsefulInformationExtractor(self.output_folder + "/plan.n3", self.output_folder, self.reasoner)
         uie.extract_all()
         
         self.lemma_graph = LemmaPrecedencesGraph(self.output_folder + "/" + UsefulInformationExtractor.get_output_filename("precedences"))
@@ -147,3 +142,12 @@ class ActuationStarterNode(object):
         
         with open(self.output_folder + "/query.n3", 'w') as fil:
             fil.write(fq)
+            
+    # TODO
+    #      1. con el query creado y el cache.n3, sacar las pruebas
+    #      2. extraer de las pruebas los bindings
+    #      3. almacenarlos en algun lado por si se usan despues.
+    #      4. comprobar siguiente lemma y ver que caminos funcionan
+    #  Con eso:
+    #      1. mirar si se podria vender lo de los caminos de forma facil
+    #      2. Si no, venderlo como que se ofrece juntar ambos mundos (un poco lo de siempre... :-S)

@@ -18,16 +18,16 @@ class UsefulInformationExtractor(object):
                    "evidences": ("non_lemma_evidences.n3", "evidences.txt"),
                    }
     
-    def __init__(self, input_file, output_folder, euler_path):
+    def __init__(self, input_file, output_folder, reasoner):
         self.input_file = input_file
         self.output_folder = output_folder
-        self.euler_path = euler_path
+        self.reasoner = reasoner
         self.path_to_goals = path.dirname(__file__) + "/goal_rules"
     
     def start(self):
         self.tmp_file = self.output_folder + "/unblanked.n3"
         unblank_lemmas( self.input_file, self.tmp_file )
-        self.default_qe = QueryExecutor( self.tmp_file, self.euler_path )
+        self.default_qe = QueryExecutor( self.tmp_file, self.reasoner )
         
     def stop(self):
         remove( self.tmp_file )
@@ -68,5 +68,8 @@ if __name__ == '__main__':
                       help = "Path to Euler.jar")
     (options, args) = parser.parse_args()
 
-    uie = UsefulInformationExtractor(options.input, options.output, options.euler)
+    from wot2013.euler.reasoner import EulerReasoner
+    reasoner = EulerReasoner( options.euler )
+
+    uie = UsefulInformationExtractor(options.input, options.output, reasoner)
     uie.extract_all()

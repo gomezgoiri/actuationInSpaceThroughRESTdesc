@@ -12,21 +12,16 @@ class QueryExecutor(object):
     Executes queries over a given proof n3 file.
     """
     
-    def __init__(self, input_file, euler_path='../../../../../'):
+    def __init__(self, input_file, reasoner):
         self.input_file = input_file
-        self.euler_path = euler_path + "" if euler_path.endswith("/") else "/"
-    
-    def _execute_query(self, query_file):
-        call = ['java', '-jar', self.euler_path + 'Euler.jar', '--nope',
-                            self.input_file, '--query', query_file]
-        return subprocess.check_output( call )
+        self.reasoner = reasoner
     
     def execute_and_save(self, query_file, output_file_path):
         with open (output_file_path, "w") as output_file:
-            output_file.write( self._execute_query(query_file) )
+            output_file.write( self.reasoner.query(self.input_file, query_file) )
     
     def execute_and_show(self, query_file):
-        print self._execute_query(query_file)
+        print self.reasoner.query( self.input_file, query_file )
 
 
 if __name__ == '__main__':
@@ -40,8 +35,11 @@ if __name__ == '__main__':
     parser.add_option("-e", "--euler", dest = "euler", default='../../../../../',
                       help = "Path to Euler.jar")
     (options, args) = parser.parse_args()
-
-    qe = QueryExecutor(options.input, options.euler)
+    
+    from wot2013.euler.reasoner import EulerReasoner
+    reasoner = EulerReasoner( options.euler )
+    
+    qe = QueryExecutor(options.input, reasoner)
     if options.output is None:
         qe.execute_and_show(options.query)
     else:

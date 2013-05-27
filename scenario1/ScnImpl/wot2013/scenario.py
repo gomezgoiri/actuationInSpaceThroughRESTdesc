@@ -13,9 +13,9 @@ from wot2013.tsc.space_cache import SpaceCache
 
 class ScenarioSimulator(object):
     
-    def __init__(self, configuration_file, output_folder, euler_path):
+    def __init__(self, configuration_file, output_folder, reasoner):
         self.output_folder = output_folder
-        self.euler_path = euler_path
+        self.reasoner = reasoner
         
         with open (configuration_file, "r") as input_file:
             config = json.loads( input_file.read() )
@@ -28,7 +28,7 @@ class ScenarioSimulator(object):
                 
         self.actuation_starter = ActuationStarterNode( config["query_goal"],
                                                        self.output_folder,
-                                                       self.euler_path )
+                                                       self.reasoner )
         self.actuation_starter.add_clues( self.vsm.get_clues() )
     
     def actuate(self):
@@ -47,6 +47,9 @@ if __name__ == '__main__':
     parser.add_option("-e", "--euler", dest = "euler", default='../../../../',
                       help = "Path to Euler.jar")
     (options, args) = parser.parse_args()
-
-    uie = ScenarioSimulator(options.input, options.output, options.euler)
+    
+    from wot2013.euler.reasoner import EulerReasoner
+    reasoner = EulerReasoner( options.euler )
+    
+    uie = ScenarioSimulator(options.input, options.output, reasoner)
     uie.actuate()
