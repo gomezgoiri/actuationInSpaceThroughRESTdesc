@@ -6,8 +6,8 @@ Created on May 20, 2013
 
 import json
 from optparse import OptionParser
-from tsc.virtual.space_manager import VirtualSpaceManager
-from tsc.actuation import ActuationStarterNode
+from wot2013.tsc.virtual.space_manager import VirtualSpaceManager
+from wot2013.tsc.actuation.actuation import ActuationStarterNode
 from wot2013.tsc.space_cache import SpaceCache
 
 
