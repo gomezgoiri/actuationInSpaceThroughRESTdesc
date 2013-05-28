@@ -14,9 +14,17 @@ class Binding(object):
     
     def __init__(self, variable, bound):
         self.variable = Variable.create( variable )
-        self.bound = self.get_proper_bound( bound ) # should be URIRef?
+        self.bound = bound 
     
-    def get_proper_bound(self, bound):
+    @property
+    def bound(self):
+        return self._bound
+    
+    @bound.setter
+    def bound(self, bound):
+        self._bound = self._get_proper_bound( bound ) # should be URIRef?
+    
+    def _get_proper_bound(self, bound):
         ret = Variable.create(bound)
         if ret is None:
             if bound.startswith("http://"):

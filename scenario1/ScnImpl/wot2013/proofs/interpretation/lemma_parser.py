@@ -22,17 +22,11 @@ class Lemma(object):
         self._bindings = set()
         self.evicence_templates = []
     
-    def get_binding(self, var_name):
+    def get_binding(self, var):
         for binding in self.bindings:
-            if binding.variable == var_name:
+            if binding.variable == var:
                 return binding.bound
         else: return None
-        
-    def set_binding(self, var_name, new_value):
-        for binding in self.bindings:
-            if binding.variable == var_name:
-                binding.bound = new_value
-                break
     
     @property
     def bindings(self):
@@ -48,15 +42,11 @@ class Lemma(object):
             raise Exception("It should be a list, tuple or set!")
     
     def equivalent_rest_calls(self, other_lemma):
-        ret = self.rest == other_lemma.rest and self.bindings == other_lemma.bindings
+        ret = self.rest == other_lemma.rest and self.bindings == other_lemma.bindings # same bindings
         if ret:
             # TODO what if it is not a variable?
             if self.rest is not None: # therefore other_lemma.rest cannot be None either
                 ret = self.get_binding( self.rest.var_body ) == other_lemma.get_binding( other_lemma.rest.var_body )
-            
-            # same bindings
-            if ret:
-                ret = set( [bind.bound for bind in self.bindings] ) == set( [bind.bound for bind in other_lemma.bindings] )
             
         return ret
     

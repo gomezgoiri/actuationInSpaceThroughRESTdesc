@@ -23,7 +23,7 @@ class RESTCall(object):
         return "r(m: %s, ru: %s, body: %s)" % (self.method, self.request_uri, self.var_body)
     
     def __eq__(self, other):
-        return (self.method == other.method) & (self.request_uri == other.request_uri)
+        return (self.method == other.method) and (self.request_uri == other.request_uri)
 
 
 # To be used with "services.txt"
