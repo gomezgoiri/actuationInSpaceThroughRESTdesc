@@ -25,7 +25,7 @@ class LemmaPrecedencesGraph(object):
     def add_lemmas_info(self, lemmas_info):
         self.lemma_info = lemmas_info
     
-    def get_rest_call(self, node):
+    def get_lemma_info(self, node):
         if node in self.lemma_info:
             return self.lemma_info[node]
         return None
@@ -103,6 +103,9 @@ class LemmaPrecedencesGraph(object):
     
     def get_all_paths(self):
         return nx.all_simple_paths(self.graph, source="source", target="target")
+    
+    def remove_edge(self, node1, node2):
+        self.graph.remove_edge( node1, node2 )
         
 
 if __name__ == '__main__':

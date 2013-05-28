@@ -30,6 +30,13 @@ class Template(object):
                  self._substitute_with_None_if_variable(self.predicate),
                  self._substitute_with_None_if_variable(self.object) )
     
+    def get_variables(self):
+        ret = set()
+        for el in ( self.subject, self.predicate, self.object ):
+            if isinstance(el, Variable):
+                ret.add( el )
+        return ret
+    
     def n3(self):
         return "%s %s %s . \n" % (self.subject.n3(), self.predicate.n3(), self.object.n3())
     

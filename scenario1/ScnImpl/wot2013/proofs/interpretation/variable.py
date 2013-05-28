@@ -9,7 +9,8 @@ from rdflib import Namespace
 var_ns = Namespace("http://localhost/var#")
 # Why do I use a new namespace?
 # So EYE cannot know that I'm talking about a variable which will be bounded with TSC knowledge.
-# Otherwise, EYE will treat it differently, so with my queries I will get a blank node instead of that URI.
+# Otherwise, EYE will treat it differently, so with my queries I will get a blank node.
+# Instead, I want the same URI to appear in the result so I can look for it.
 fake_ns = Namespace("http://fake.is/var#") 
 
 class Variable(object):
@@ -20,6 +21,9 @@ class Variable(object):
     
     def urize(self): # could it be considered as a reification?
         return var_ns[self.name]
+    
+    def fake_urize(self):
+        return fake_ns[self.name]
     
     @staticmethod
     def create(possible_var):

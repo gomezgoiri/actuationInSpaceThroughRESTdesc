@@ -44,7 +44,8 @@ class ActuationStarterNode(object):
         #self.lemma_graph.to_image( output_file = options.output + "/lemma_precedences.png" )
         #self.lemma_graph.to_gml( output_file = self.output_folder + "/lemma_precedences.gml" )
     
-    def discard_paths(self):
+    # rename to check_paths_viability ???
+    def check_paths_viability(self):
         """Discards paths which cannot be followed because we do not have input data"""
         # For different actuations, they will use different caches.
         # This can be suitable
@@ -53,27 +54,42 @@ class ActuationStarterNode(object):
         #    (e.g. if they occur at the same time, you can save queries).
         space_cache = SpaceCache( self.space_manager )
         
+        edges_to_remove = []
         i = 0
         for path in self.lemma_graph.get_all_paths():
             print "PATH %d" % i
             i += 1
             
+            previous_node = None
             for node in path:
-                rest = self.lemma_graph.get_rest_call(node)
-                if rest is None:
+                lemma = self.lemma_graph.get_lemma_info(node)
+                if lemma is None:
                     print "No service for %s" % node
                 else:
-                    precond_checker = LemmaPreconditionsChecker( self.output_folder, self.reasoner, rest.evicence_templates, space_cache )
-                    precond_checker.cache_data()
-                    bind = precond_checker.get_real_bindings()
-                    if bind is None:
-                        print "could not follow the path"
-            
+                    if not lemma.bindings and not lemma.evidence_templates:
+                        print "Call without preconditions."
+                    else:
+                        precond_checker = LemmaPreconditionsChecker( self.output_folder, self.reasoner, lemma.evidence_templates, space_cache )
+                        precond_checker.cache_data()
+                        bind = precond_checker.get_real_bindings()
+                        if not bind: # empty dictio
+                            # because graph cannot be changes during iteration!
+                            edges_to_remove.append( ( previous_node, node ) )
+                            print "could not follow the path"
+                            break
+                        else:
+                            # store them somewhere just in case they are used later?
+                            pass
+                previous_node = node
+            else:
+                # http://docs.python.org/release/1.5/tut/node23.html
+                print "successful path!"
+        
+        # discard non-viable paths
+        for node1, node2 in edges_to_remove:
+            self.lemma_graph.remove_edge( node1, node2 )
     # TODO
-    #      1. con el query creado y el cache.n3, sacar las pruebas
-    #      2. extraer de las pruebas los bindings
-    #      3. almacenarlos en algun lado por si se usan despues.
-    #      4. comprobar siguiente lemma y ver que caminos funcionan
+    #      3. almacenar bindings en algun lado por si se usan despues.
     #  Con eso:
     #      1. mirar si se podria vender lo de los caminos de forma facil
     #      2. Si no, venderlo como que se ofrece juntar ambos mundos (un poco lo de siempre... :-S)

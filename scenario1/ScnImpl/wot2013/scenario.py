@@ -33,7 +33,7 @@ class ScenarioSimulator(object):
     def actuate(self):
         self.actuation_starter.create_plan()
         self.actuation_starter.process_plan()
-        self.actuation_starter.discard_paths()
+        self.actuation_starter.check_paths_viability()
 
 
 if __name__ == '__main__':

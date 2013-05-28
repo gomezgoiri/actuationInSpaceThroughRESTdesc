@@ -20,7 +20,7 @@ class Lemma(object):
     def __init__(self):
         self.rest = None
         self._bindings = set()
-        self.evicence_templates = []
+        self.evidence_templates = []
     
     def get_binding(self, var):
         for binding in self.bindings:
@@ -51,7 +51,7 @@ class Lemma(object):
         return ret
     
     def __repr__(self):
-        return "l(rest: %s, bindings: %s, evidences: %s)" % (self.rest, self.bindings, self.evicence_templates)
+        return "l(rest: %s, bindings: %s, evidences: %s)" % (self.rest, self.bindings, self.evidence_templates)
     
 
 class LemmaParser(object):
@@ -78,7 +78,7 @@ class LemmaParser(object):
         etp = EvidenceTemplatesParser( evidences_path )
         for lemma, templates in etp.templates_by_lemma.iteritems():
             self._init_lemma_if_needed(lemma)
-            self.lemmas[lemma].evicence_templates = templates
+            self.lemmas[lemma].evidence_templates = templates
     
     def _init_lemma_if_needed(self, lemma):
         if lemma not in self.lemmas:
