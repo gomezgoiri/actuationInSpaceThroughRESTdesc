@@ -8,7 +8,6 @@ import json
 from optparse import OptionParser
 from wot2013.tsc.virtual.space_manager import VirtualSpaceManager
 from wot2013.tsc.actuation.actuation import ActuationStarterNode
-from wot2013.tsc.space_cache import SpaceCache
 
 
 class ScenarioSimulator(object):
@@ -29,13 +28,12 @@ class ScenarioSimulator(object):
         self.actuation_starter = ActuationStarterNode( config["query_goal"],
                                                        self.output_folder,
                                                        self.reasoner )
-        self.actuation_starter.add_clues( self.vsm.get_clues() )
+        self.actuation_starter.add_space_manager( self.vsm )
     
     def actuate(self):
         self.actuation_starter.create_plan()
         self.actuation_starter.process_plan()
-        sc = SpaceCache( self.vsm )
-        self.actuation_starter.discard_paths( sc )
+        self.actuation_starter.discard_paths()
 
 
 if __name__ == '__main__':

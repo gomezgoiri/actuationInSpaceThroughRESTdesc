@@ -18,15 +18,11 @@ op_ns = Namespace("http://www.w3.org/2000/10/swap/math#")
 class ActuationPlanCreator(object):
     
     def __init__(self, query_goal_path, output_folder, reasoner, debug = False):
-        self.debug = debug
         self.query_goal_path = query_goal_path
         self.output_folder = output_folder
         self.reasoner = reasoner
+        self.debug = debug
     
-    def add_clues(self, clues):
-        self.rule_paths = self._extract_rules(clues["rule_files"])
-        self.predicates = self._extract_predicates(clues["predicates"])
-        
     def _extract_rules(self, rules_by_node):
         rules = []
         for _, ruls in rules_by_node.iteritems():
@@ -58,9 +54,10 @@ class ActuationPlanCreator(object):
         new_g.serialize( temporary_file_path, format="n3" )
         self._substitute_vars_for_fake_uris( temporary_file_path )
     
-    def _create_fake_rules(self):
+    def _create_fake_rules(self, rule_paths, predicates):
         temporary_files = []
-        for rule_path in self.rule_paths:
+        
+        for rule_path in rule_paths:
             g = Graph()
             g.parse( rule_path, format="n3" )
             for premise in g.subjects(log_ns.implies, None):
@@ -71,7 +68,7 @@ class ActuationPlanCreator(object):
                     if str_pred.startswith( str(RDF) ) or str_pred.startswith( str(RDFS) ) or str_pred.startswith( str(op_ns) ):
                         pass # all_in_clues is still True
                     else:
-                        if str_pred not in self.predicates:
+                        if str_pred not in predicates:
                             all_in_clues = False
                             break # I got it, so do not check more predicates
             
@@ -85,13 +82,14 @@ class ActuationPlanCreator(object):
         for fi in files:
             remove( fi )
         
-    def create_plan(self):
-        fake_rules = self._create_fake_rules()
-        output = self.reasoner.query_proofs( self.rule_paths + fake_rules, self.query_goal_path )
-        if not self.debug: self._remove_temporary_files(fake_rules)
+    def create_plan(self, clues):
+        predicates = self._extract_predicates(clues["predicates"])
+        rule_paths = self._extract_rules(clues["rule_files"])
         
-        file_path = self.output_folder + "/plan.n3"
-        with open (file_path, "w") as output_file:
-            output_file.write( output )
-            return file_path
-        raise Exception("The plan could not be created.")
+        # Generate plan using fake rules and remove them after getting it
+        fake_rules = self._create_fake_rules( rule_paths, predicates )
+        output_file_path = self.reasoner.query_proofs( rule_paths + fake_rules,
+                                                         self.query_goal_path,
+                                                         self.output_folder + "/plan.n3" ) # Write the plan into a file
+        if not self.debug: self._remove_temporary_files( fake_rules )
+        return output_file_path

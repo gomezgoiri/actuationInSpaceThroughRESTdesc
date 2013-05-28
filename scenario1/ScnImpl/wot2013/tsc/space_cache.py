@@ -24,3 +24,4 @@ class SpaceCache(object):
     def launch_requests(self):
         for query in self.queries:
             self.cache += self.space_manager.query_tsc(query)
+            # TODO optimization: store the used templates to avoid repetition
