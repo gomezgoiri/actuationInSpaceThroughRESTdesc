@@ -11,10 +11,10 @@ class EulerReasoner(object):
     Gateway to call to euler/EYE resoner
     '''
 
-    def __init__(self, euler_path='../../../../../'):
+    def __init__( self, euler_path='../../../../../' ):
         self.euler_path = euler_path + "" if euler_path.endswith("/") else "/"
     
-    def _generic_query(self, input_files, query_file, optional_args):
+    def _generic_query( self, input_files, query_file, optional_args, output_file_path = None ):
         '''
         This method invokes Euler (EYE) in the following way:
         
@@ -32,21 +32,29 @@ class EulerReasoner(object):
             
         call += ['--query', query_file]
         #print call
-        return subprocess.check_output( call )
+        output = subprocess.check_output( call )
+        
+        if output_file_path is None:
+            return output
+        else:
+            with open (output_file_path, "w") as output_file:
+                output_file.write( output )
+                return output_file_path
+            raise Exception("The plan could not be created.")
     
-    def query(self, input_files, query_file):
+    def query( self, input_files, query_file, output_file_path = None  ):
         '''
         This method invokes Euler (EYE) in the following way:
         
         java -jar path/Euler.jar --nope [input_files] --query [goal_file] 
         '''
-        return self._generic_query( input_files, query_file, ["--nope",] )
+        return self._generic_query( input_files, query_file, ["--nope",], output_file_path )
     
     
-    def query_proofs(self, input_files, query_file):
+    def query_proofs( self, input_files, query_file, output_file_path = None ):
         '''
         This method invokes Euler (EYE) in the following way:
         
         java -jar path/Euler.jar [input_files] --query [goal_file] 
-        '''
-        return self._generic_query( input_files, query_file, [] )
+        '''        
+        return self._generic_query( input_files, query_file, [], output_file_path )        
