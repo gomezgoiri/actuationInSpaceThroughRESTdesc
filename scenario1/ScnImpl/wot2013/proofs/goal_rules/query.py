@@ -17,8 +17,7 @@ class QueryExecutor(object):
         self.reasoner = reasoner
     
     def execute_and_save(self, query_file, output_file_path):
-        with open (output_file_path, "w") as output_file:
-            output_file.write( self.reasoner.query(self.input_file, query_file) )
+        self.reasoner.query( self.input_file, query_file, output_file_path )
     
     def execute_and_show(self, query_file):
         print self.reasoner.query( self.input_file, query_file )
