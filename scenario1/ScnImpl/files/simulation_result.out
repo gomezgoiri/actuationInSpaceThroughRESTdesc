@@ -1,0 +1,43 @@
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 80 [msec cputime] 80 [msec walltime]
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/benchmarking_template/light_goal.n3 SC=1
+networking 4 [msec cputime] 3 [msec walltime]
+TC=0 TP=0 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 0 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 76 [msec cputime] 78 [msec walltime]
+GET file:///tmp/tmpbcRmkq/unblanked.n3 SC=0
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/lemma_precedences.n3 SC=1
+networking 4 [msec cputime] 4 [msec walltime]
+TC=0 TP=0 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 0 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 72 [msec cputime] 79 [msec walltime]
+GET file:///tmp/tmpbcRmkq/unblanked.n3 SC=0
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_bindings.n3 SC=1
+networking 4 [msec cputime] 5 [msec walltime]
+TC=0 TP=0 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 0 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 76 [msec cputime] 78 [msec walltime]
+GET file:///tmp/tmpbcRmkq/unblanked.n3 SC=0
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_services.n3 SC=1
+networking 4 [msec cputime] 4 [msec walltime]
+TC=0 TP=0 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 0 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 80 [msec cputime] 79 [msec walltime]
+GET file:///tmp/tmpbcRmkq/unblanked.n3 SC=0
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/non_lemma_evidences.n3 SC=1
+networking 4 [msec cputime] 4 [msec walltime]
+TC=0 TP=0 BC=0 BP=0 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 0 [msec walltime] 
