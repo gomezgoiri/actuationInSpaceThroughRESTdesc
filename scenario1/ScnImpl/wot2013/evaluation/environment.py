@@ -10,8 +10,9 @@ from tempfile import mkdtemp
 
 class ExperimentalEnvironment(object):
     
-    UNREL_FACT_FILENAME = "unrelated_graph_%d.n3"
-    UNREL_FACT_TEMPLATE = "unrelated_graph.n3.tpl"
+    UNREL_GRAPH = "unrelated_graph"
+    UNREL_RULE_GRAPH = "thermometer"
+    UNREL_RULE_RULE = "temperature_rule"
     MAIN_GRAPHS = ["facts.n3"]
     MAIN_RULE = ["light3_rule.n3"]
     QUERY_RULE = "light_goal.n3"
@@ -20,8 +21,11 @@ class ExperimentalEnvironment(object):
         self.output_folder = mkdtemp( dir = "/tmp" )
         self.copy_normal_knowledge()
         self.create_unrelated_graphs(100)
+        self.create_unrelated_rules(100)
+        
         self.create_scenario()
         self.create_scenario( unrelated_facts = 100 )
+        self.create_scenario( unrelated_rules = 100 )
     
     def _get_new_filename(self, filename):
         return self.output_folder + "/" + filename
@@ -36,27 +40,51 @@ class ExperimentalEnvironment(object):
         for normal_rule in ExperimentalEnvironment.MAIN_RULE:
             self._copy_file( normal_rule )
     
+    def get_template_filepath(self, filename):
+        return "%s.n3.tpl" % (filename)
+    
+    def get_output_filepath(self, filename, num):
+        return "%s/%s_%d.n3" % (self.output_folder, filename, num)
+    
     def create_unrelated_graphs(self, n):
-        with open (ExperimentalEnvironment.UNREL_FACT_TEMPLATE, "r") as input_file:
+        with open ( self.get_template_filepath(ExperimentalEnvironment.UNREL_RULE_GRAPH), "r") as input_file:
             content = input_file.read()
             for i in range(n):
-                with open ( self.output_folder + "/" +  ExperimentalEnvironment.UNREL_FACT_FILENAME % i, "w" ) as output_file:
+                with open ( self.get_output_filepath(ExperimentalEnvironment.UNREL_GRAPH, i), "w" ) as output_file:
                     output_file.write( content.replace(r"(?id)", str(i)) )
+    
+    def create_unrelated_rules(self, n):
+        with open ( self.get_template_filepath(ExperimentalEnvironment.UNREL_RULE_RULE), "r") as input_file:
+            content = input_file.read()
+            for i in range(n):
+                with open ( self.get_output_filepath(ExperimentalEnvironment.UNREL_RULE_RULE, i), "w" ) as output_file:
+                    output_file.write( content.replace(r"(?id)", str(i)) )
+        
+        with open ( self.get_template_filepath(ExperimentalEnvironment.UNREL_RULE_GRAPH), "r") as input_file:
+            content = input_file.read()
+            for i in range(n):
+                with open ( self.get_output_filepath(ExperimentalEnvironment.UNREL_RULE_GRAPH, i), "w" ) as output_file:
+                    output_file.write( content.replace(r"(?id)", str(i)) )    
     
     def create_scenario(self,
                         unrelated_facts = 1,
-                        unrelated_goals = 1,
+                        unrelated_rules = 1,
                         not_feasible_goals = 1 ):
         config = {}
         config["query_goal"] = self._get_new_filename( ExperimentalEnvironment.QUERY_RULE )
         config["virtual_nodes"] = []
-        one_node = {}
+        one_node = {} # in one node all the content, nothing special since that part is not being evaluated
         one_node["facts"] = []
         one_node["rules"] = []
         
         for i in range(unrelated_facts):
-            one_node["facts"].append ( self.output_folder + "/" + ExperimentalEnvironment.UNREL_FACT_FILENAME % i )
+            one_node["facts"].append ( self.get_output_filepath(ExperimentalEnvironment.UNREL_GRAPH, i) )
             one_node["rules"] = []
+            
+        for i in range(unrelated_rules):
+            one_node["facts"].append ( self.get_output_filepath(ExperimentalEnvironment.UNREL_RULE_GRAPH, i) )
+            one_node["rules"].append ( self.get_output_filepath(ExperimentalEnvironment.UNREL_RULE_RULE, i) )
+            
         config["virtual_nodes"].append( one_node )
         
         
@@ -66,7 +94,7 @@ class ExperimentalEnvironment(object):
         
         config["virtual_nodes"].append( actuator_node )
         
-        with open ( "%s/scenario_%d_%d_%d.config" % (self.output_folder, unrelated_facts, unrelated_goals, not_feasible_goals), "w" ) as output_file:
+        with open ( "%s/scenario_%d_%d_%d.config" % (self.output_folder, unrelated_facts, unrelated_rules, not_feasible_goals), "w" ) as output_file:
             output_file.write( json.dumps(config) )
 
 if __name__ == '__main__':
