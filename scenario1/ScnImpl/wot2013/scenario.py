@@ -35,6 +35,9 @@ class ScenarioSimulator(object):
         self.actuation_starter.process_plan()
         self.actuation_starter.check_paths_viability()
 
+    def get_calls_to_tsc(self):
+        return self.vsm.calls_to_middleware
+
 
 if __name__ == '__main__':
     parser = OptionParser()
@@ -51,3 +54,5 @@ if __name__ == '__main__':
     
     uie = ScenarioSimulator(options.input, options.output, reasoner)
     uie.actuate()
+    calls = uie.get_calls_to_tsc()
+    print "calls to our middleware %d [msec cputime]" % calls

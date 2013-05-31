@@ -14,6 +14,7 @@ class VirtualSpaceManager(SpaceManager):
     def __init__(self):
         self.nodes = {}
         self.clues = None
+        self.calls_to_middleware = 0
     
     def create_node(self, facts, rules):
         vn = VirtualNode()
@@ -47,6 +48,7 @@ class VirtualSpaceManager(SpaceManager):
     
     
     def query_tsc(self, template):
+        self.calls_to_middleware += 1
         ret = Graph()
         looking_for = str(template[1])
         for name, predicates in self.get_clues()["predicates"].iteritems():
