@@ -1,119 +1,119 @@
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 80 [msec cputime] 77 [msec walltime]
-GET file:///tmp/tmpX2AAra/light3_rule.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_0.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_1.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_2.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_3.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_4.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_5.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_6.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_7.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_8.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_9.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_10.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_11.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_12.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_13.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_14.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_15.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_16.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_17.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_18.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_19.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_20.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_21.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_22.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_23.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_24.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_25.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_26.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_27.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_28.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_29.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_30.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_31.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_32.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_33.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_34.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_35.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_36.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_37.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_38.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_39.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_40.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_41.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_42.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_43.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_44.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_45.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_46.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_47.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_48.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_49.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_50.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_51.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_52.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_53.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_54.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_55.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_56.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_57.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_58.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_59.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_60.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_61.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_62.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_63.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_64.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_65.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_66.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_67.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_68.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_69.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_70.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_71.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_72.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_73.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_74.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_75.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_76.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_77.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_78.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_79.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_80.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_81.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_82.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_83.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_84.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_85.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_86.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_87.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_88.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_89.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_90.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_91.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_92.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_93.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_94.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_95.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_96.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_97.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_98.n3 SC=1
-GET file:///tmp/tmpX2AAra/temperature_rule_99.n3 SC=1
-GET file:///tmp/tmpX2AAra/light2_rule_0.n3 SC=1
-GET file:///tmp/tmpvjtzws/light3_rule_activator.n3 SC=1
-GET file:///tmp/tmpvjtzws/light2_rule_0_activator.n3 SC=1
-GET file:///tmp/tmpX2AAra/light_goal.n3 SC=1
-networking 188 [msec cputime] 221 [msec walltime]
+starting 76 [msec cputime] 83 [msec walltime]
+GET file:///tmp/tmpcj3icf/light3_rule.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_0.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_1.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_2.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_3.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_4.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_5.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_6.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_7.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_8.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_9.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_10.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_11.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_12.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_13.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_14.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_15.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_16.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_17.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_18.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_19.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_20.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_21.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_22.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_23.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_24.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_25.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_26.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_27.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_28.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_29.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_30.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_31.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_32.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_33.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_34.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_35.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_36.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_37.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_38.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_39.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_40.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_41.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_42.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_43.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_44.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_45.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_46.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_47.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_48.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_49.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_50.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_51.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_52.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_53.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_54.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_55.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_56.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_57.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_58.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_59.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_60.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_61.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_62.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_63.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_64.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_65.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_66.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_67.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_68.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_69.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_70.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_71.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_72.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_73.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_74.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_75.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_76.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_77.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_78.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_79.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_80.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_81.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_82.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_83.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_84.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_85.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_86.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_87.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_88.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_89.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_90.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_91.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_92.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_93.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_94.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_95.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_96.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_97.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_98.n3 SC=1
+GET file:///tmp/tmpcj3icf/temperature_rule_99.n3 SC=1
+GET file:///tmp/tmpcj3icf/light2_rule_0.n3 SC=1
+GET file:///tmp/tmp2gqfij/light3_rule_activator.n3 SC=1
+GET file:///tmp/tmp2gqfij/light2_rule_0_activator.n3 SC=1
+GET file:///tmp/tmpcj3icf/light_goal.n3 SC=1
+networking 224 [msec cputime] 268 [msec walltime]
 TC=4 TP=16 BC=0 BP=6 PM=0 CM=0 FM=0 AM=0
-reasoning 12 [msec cputime] 12 [msec walltime]
+reasoning 12 [msec cputime] 13 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 76 [msec cputime] 81 [msec walltime]
-GET file:///tmp/tmpvjtzws/unblanked.n3 SC=138
+starting 80 [msec cputime] 82 [msec walltime]
+GET file:///tmp/tmp2gqfij/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/lemma_precedences.n3 SC=1
 networking 24 [msec cputime] 22 [msec walltime]
 TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
@@ -121,39 +121,39 @@ reasoning 0 [msec cputime] 1 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 80 [msec cputime] 79 [msec walltime]
-GET file:///tmp/tmpvjtzws/unblanked.n3 SC=138
+starting 80 [msec cputime] 82 [msec walltime]
+GET file:///tmp/tmp2gqfij/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_bindings.n3 SC=1
-networking 24 [msec cputime] 22 [msec walltime]
+networking 20 [msec cputime] 22 [msec walltime]
 TC=8 TP=16 BC=0 BP=9 PM=0 CM=0 FM=0 AM=0
 reasoning 4 [msec cputime] 3 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 80 [msec cputime] 79 [msec walltime]
-GET file:///tmp/tmpvjtzws/unblanked.n3 SC=138
+starting 76 [msec cputime] 82 [msec walltime]
+GET file:///tmp/tmp2gqfij/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_services.n3 SC=1
-networking 20 [msec cputime] 22 [msec walltime]
+networking 24 [msec cputime] 23 [msec walltime]
 TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
 reasoning 4 [msec cputime] 2 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 84 [msec cputime] 81 [msec walltime]
-GET file:///tmp/tmpvjtzws/unblanked.n3 SC=138
+starting 84 [msec cputime] 86 [msec walltime]
+GET file:///tmp/tmp2gqfij/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/non_lemma_evidences.n3 SC=1
-networking 24 [msec cputime] 23 [msec walltime]
+networking 20 [msec cputime] 23 [msec walltime]
 TC=15 TP=30 BC=0 BP=16 PM=0 CM=0 FM=0 AM=0
-reasoning 4 [msec cputime] 6 [msec walltime]
+reasoning 4 [msec cputime] 4 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 80 [msec cputime] 83 [msec walltime]
-GET file:///tmp/tmpvjtzws/tmpJkhN0D/cached.n3 SC=13
-GET file:///tmp/tmpvjtzws/tmpJkhN0D/query.n3 SC=1
-networking 0 [msec cputime] 5 [msec walltime]
+starting 88 [msec cputime] 90 [msec walltime]
+GET file:///tmp/tmp2gqfij/tmpF0GtVN/cached.n3 SC=13
+GET file:///tmp/tmp2gqfij/tmpF0GtVN/query.n3 SC=1
+networking 4 [msec cputime] 5 [msec walltime]
 TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
-reasoning 0 [msec cputime] 1 [msec walltime]
+reasoning 4 [msec cputime] 1 [msec walltime]
 
 PATH 0
 No service for source

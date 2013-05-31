@@ -21,14 +21,19 @@ class ExperimentalEnvironment(object):
     def __init__(self):
         self.output_folder = mkdtemp( dir = "/tmp" )
         self.copy_normal_knowledge()
-        self.create_unrelated_graphs(100)
-        self.create_unrelated_rules(100)
-        self.create_not_feasible_rules(100)
+        self.create_unrelated_graphs(1000)
+        self.create_unrelated_rules(1000)
+        self.create_not_feasible_rules(1000)
         
         self.create_scenario()
+        
         self.create_scenario( unrelated_facts = 100 )
         self.create_scenario( unrelated_rules = 100 )
         self.create_scenario( not_feasible_rules = 100 )
+        
+        self.create_scenario( unrelated_facts = 1000 )
+        self.create_scenario( unrelated_rules = 1000 )
+        self.create_scenario( not_feasible_rules = 1000 )
     
     def _get_new_filename(self, filename):
         return self.output_folder + "/" + filename

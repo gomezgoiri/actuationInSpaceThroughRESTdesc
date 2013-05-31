@@ -1,60 +1,60 @@
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 84 [msec cputime] 80 [msec walltime]
+starting 76 [msec cputime] 81 [msec walltime]
 GET file:///tmp/tmpcj3icf/light3_rule.n3 SC=1
 GET file:///tmp/tmpcj3icf/temperature_rule_0.n3 SC=1
 GET file:///tmp/tmpcj3icf/light2_rule_0.n3 SC=1
-GET file:///tmp/tmpFWlinV/light3_rule_activator.n3 SC=1
-GET file:///tmp/tmpFWlinV/light2_rule_0_activator.n3 SC=1
+GET file:///tmp/tmpWqEl5h/light3_rule_activator.n3 SC=1
+GET file:///tmp/tmpWqEl5h/light2_rule_0_activator.n3 SC=1
 GET file:///tmp/tmpcj3icf/light_goal.n3 SC=1
-networking 12 [msec cputime] 13 [msec walltime]
+networking 12 [msec cputime] 12 [msec walltime]
 TC=4 TP=16 BC=0 BP=6 PM=0 CM=0 FM=0 AM=0
-reasoning 4 [msec cputime] 6 [msec walltime]
+reasoning 8 [msec cputime] 7 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 80 [msec cputime] 84 [msec walltime]
-GET file:///tmp/tmpFWlinV/unblanked.n3 SC=138
+starting 96 [msec cputime] 97 [msec walltime]
+GET file:///tmp/tmpWqEl5h/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/lemma_precedences.n3 SC=1
-networking 20 [msec cputime] 22 [msec walltime]
+networking 20 [msec cputime] 18 [msec walltime]
 TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
-reasoning 4 [msec cputime] 1 [msec walltime]
+reasoning 0 [msec cputime] 1 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 80 [msec cputime] 78 [msec walltime]
-GET file:///tmp/tmpFWlinV/unblanked.n3 SC=138
+starting 80 [msec cputime] 81 [msec walltime]
+GET file:///tmp/tmpWqEl5h/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_bindings.n3 SC=1
-networking 16 [msec cputime] 19 [msec walltime]
+networking 20 [msec cputime] 18 [msec walltime]
 TC=8 TP=16 BC=0 BP=9 PM=0 CM=0 FM=0 AM=0
 reasoning 4 [msec cputime] 2 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
 starting 80 [msec cputime] 79 [msec walltime]
-GET file:///tmp/tmpFWlinV/unblanked.n3 SC=138
+GET file:///tmp/tmpWqEl5h/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_services.n3 SC=1
-networking 20 [msec cputime] 18 [msec walltime]
+networking 12 [msec cputime] 18 [msec walltime]
 TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
 reasoning 4 [msec cputime] 2 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 80 [msec cputime] 80 [msec walltime]
-GET file:///tmp/tmpFWlinV/unblanked.n3 SC=138
+starting 84 [msec cputime] 79 [msec walltime]
+GET file:///tmp/tmpWqEl5h/unblanked.n3 SC=138
 GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/non_lemma_evidences.n3 SC=1
-networking 20 [msec cputime] 18 [msec walltime]
+networking 16 [msec cputime] 18 [msec walltime]
 TC=15 TP=30 BC=0 BP=16 PM=0 CM=0 FM=0 AM=0
 reasoning 4 [msec cputime] 3 [msec walltime]
 
 Id: euler.yap 6067 2013-03-06 16:36:51Z josd
 YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
-starting 76 [msec cputime] 79 [msec walltime]
-GET file:///tmp/tmpFWlinV/tmpY3Pdmi/cached.n3 SC=13
-GET file:///tmp/tmpFWlinV/tmpY3Pdmi/query.n3 SC=1
-networking 4 [msec cputime] 6 [msec walltime]
+starting 76 [msec cputime] 80 [msec walltime]
+GET file:///tmp/tmpWqEl5h/tmpoHRdFZ/cached.n3 SC=13
+GET file:///tmp/tmpWqEl5h/tmpoHRdFZ/query.n3 SC=1
+networking 8 [msec cputime] 5 [msec walltime]
 TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
-reasoning 4 [msec cputime] 1 [msec walltime]
+reasoning 0 [msec cputime] 1 [msec walltime]
 
 PATH 0
 No service for source
