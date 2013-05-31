@@ -1,0 +1,262 @@
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 80 [msec cputime] 79 [msec walltime]
+GET file:///tmp/tmpX2AAra/light3_rule.n3 SC=1
+GET file:///tmp/tmpX2AAra/temperature_rule_0.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_0.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_1.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_2.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_3.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_4.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_5.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_6.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_7.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_8.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_9.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_10.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_11.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_12.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_13.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_14.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_15.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_16.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_17.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_18.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_19.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_20.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_21.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_22.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_23.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_24.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_25.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_26.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_27.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_28.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_29.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_30.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_31.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_32.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_33.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_34.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_35.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_36.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_37.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_38.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_39.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_40.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_41.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_42.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_43.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_44.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_45.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_46.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_47.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_48.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_49.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_50.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_51.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_52.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_53.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_54.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_55.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_56.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_57.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_58.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_59.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_60.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_61.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_62.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_63.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_64.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_65.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_66.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_67.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_68.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_69.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_70.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_71.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_72.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_73.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_74.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_75.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_76.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_77.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_78.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_79.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_80.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_81.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_82.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_83.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_84.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_85.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_86.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_87.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_88.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_89.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_90.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_91.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_92.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_93.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_94.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_95.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_96.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_97.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_98.n3 SC=1
+GET file:///tmp/tmpX2AAra/light2_rule_99.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light3_rule_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_0_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_1_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_2_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_3_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_4_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_5_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_6_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_7_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_8_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_9_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_10_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_11_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_12_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_13_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_14_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_15_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_16_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_17_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_18_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_19_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_20_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_21_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_22_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_23_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_24_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_25_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_26_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_27_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_28_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_29_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_30_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_31_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_32_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_33_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_34_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_35_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_36_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_37_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_38_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_39_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_40_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_41_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_42_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_43_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_44_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_45_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_46_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_47_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_48_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_49_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_50_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_51_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_52_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_53_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_54_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_55_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_56_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_57_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_58_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_59_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_60_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_61_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_62_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_63_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_64_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_65_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_66_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_67_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_68_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_69_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_70_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_71_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_72_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_73_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_74_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_75_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_76_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_77_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_78_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_79_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_80_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_81_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_82_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_83_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_84_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_85_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_86_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_87_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_88_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_89_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_90_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_91_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_92_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_93_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_94_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_95_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_96_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_97_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_98_activator.n3 SC=1
+GET file:///tmp/tmpc9EVmL/light2_rule_99_activator.n3 SC=1
+GET file:///tmp/tmpX2AAra/light_goal.n3 SC=1
+networking 316 [msec cputime] 375 [msec walltime]
+TC=103 TP=709 BC=0 BP=204 PM=0 CM=0 FM=0 AM=0
+reasoning 28 [msec cputime] 29 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 80 [msec cputime] 79 [msec walltime]
+GET file:///tmp/tmpc9EVmL/unblanked.n3 SC=138
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/lemma_precedences.n3 SC=1
+networking 24 [msec cputime] 23 [msec walltime]
+TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 1 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 80 [msec cputime] 80 [msec walltime]
+GET file:///tmp/tmpc9EVmL/unblanked.n3 SC=138
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_bindings.n3 SC=1
+networking 24 [msec cputime] 23 [msec walltime]
+TC=8 TP=16 BC=0 BP=9 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 4 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 84 [msec cputime] 80 [msec walltime]
+GET file:///tmp/tmpc9EVmL/unblanked.n3 SC=138
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/rest_services.n3 SC=1
+networking 24 [msec cputime] 23 [msec walltime]
+TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
+reasoning 0 [msec cputime] 2 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 80 [msec cputime] 82 [msec walltime]
+GET file:///tmp/tmpc9EVmL/unblanked.n3 SC=138
+GET file:///home/tulvur/dev/workspaces/wot2013/wot_actuates/scenario1/ScnImpl/wot2013/proofs/goal_rules/non_lemma_evidences.n3 SC=1
+networking 24 [msec cputime] 23 [msec walltime]
+TC=15 TP=30 BC=0 BP=16 PM=0 CM=0 FM=0 AM=0
+reasoning 8 [msec cputime] 6 [msec walltime]
+
+Id: euler.yap 6067 2013-03-06 16:36:51Z josd
+YAP 6.2.3 (i686-linux): Sat Jun 16 23:34:26 CEST 2012
+starting 76 [msec cputime] 78 [msec walltime]
+GET file:///tmp/tmpc9EVmL/tmpmOMnBY/cached.n3 SC=13
+GET file:///tmp/tmpc9EVmL/tmpmOMnBY/query.n3 SC=1
+networking 0 [msec cputime] 5 [msec walltime]
+TC=1 TP=2 BC=0 BP=2 PM=0 CM=0 FM=0 AM=0
+reasoning 4 [msec cputime] 1 [msec walltime]
+
+PATH 0
+No service for source
+No service for http://fake.is/var#lemma1
+No service for target
+successful path!
+calls to our middleware 12 [msec cputime]
