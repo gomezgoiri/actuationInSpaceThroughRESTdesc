@@ -63,3 +63,8 @@ The following criticisms/suggestions are applicable to the content of this proje
  * Some of the rules used give the applications logic, not service description.
  * _From a practical point of view it seems very doubtful that a programmer will be able to define the required rules without errors._
    _So even though your approach might provide a technical solution at best you are achieving a trade-off: more flexibility is traded for less usability, more sources of errors etc._
+
+License
+-------
+
+Check [ScnImpl/COPYING.txt](https://github.com/gomezgoiri/actuationInSpaceThroughRESTdesc/blob/master/ScnImpl/COPYING.txt).
