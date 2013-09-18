@@ -1,0 +1,15 @@
+Flask==0.9
+Jinja2==2.6
+-e git://github.com/gjhiggins/n3_pygments_lexer.git@60c48e0d60300ae2c05d9a850322341af4173ff8#egg=Notation3_Pygments_Lexer-dev
+Pygments==1.6
+Werkzeug==0.8.3
+argparse==1.2.1
+distribute==0.6.34
+html5lib==0.95
+isodate==0.4.9
+matplotlib==1.2.1
+networkx==1.7
+numpy==1.7.1
+rdflib==3.4.0
+wsgiref==0.1.2
+yolk==0.4.3
