@@ -1,13 +1,26 @@
+'''
+ Copyright (C) 2013 onwards University of Deusto
+  
+ All rights reserved.
+ 
+ This software is licensed as described in the file COPYING, which
+ you should have received as part of this distribution.
+ 
+ This software consists of contributions made by many individuals, 
+ listed below:
+ 
+ @author: Aitor Gómez Goiri <aitor.gomez@deusto.es>
+'''
+
 from os import remove, path
 from optparse import OptionParser
 from wot2013.proofs.goal_rules.query import QueryExecutor
 from wot2013.proofs.processing.unblank_lemmas import unblank_lemmas
 
+
 '''
 This is the entry point for processing a file with proof results. 
 '''
-
-
 class UsefulInformationExtractor(object):
         
     EXTRACTIONS = {# identifier: (input_filename, output_filename)

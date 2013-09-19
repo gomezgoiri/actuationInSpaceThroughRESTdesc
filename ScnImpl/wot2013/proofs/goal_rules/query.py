@@ -1,12 +1,26 @@
+'''
+ Copyright (C) 2013 onwards University of Deusto
+  
+ All rights reserved.
+ 
+ This software is licensed as described in the file COPYING, which
+ you should have received as part of this distribution.
+ 
+ This software consists of contributions made by many individuals, 
+ listed below:
+ 
+ @author: Aitor Gómez Goiri <aitor.gomez@deusto.es>
+'''
+
 import subprocess
 from optparse import OptionParser
+
 
 '''
 This module invokes Euler (EYE) in this way:
 
 java -jar ../../Euler.jar --nope result_file.n3 --query goal_file.n3 > refined_results.n3 
 '''
-
 class QueryExecutor(object):
     """
     Executes queries over a given proof n3 file.
