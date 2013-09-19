@@ -77,7 +77,7 @@ class LemmaPreconditionsChecker(object):
         self._create_fake_query_rule( query_path )
         self.reasoner.query( [self._cached_file] , query_path, self._result_path )
     
-    # error prone: what if multiple results unrelated with each other?
+    # error prone: what if there are multiple results unrelated with each other?
     def _get_bindings(self):
         ret = {}
         
