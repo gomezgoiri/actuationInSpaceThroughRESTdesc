@@ -11,7 +11,7 @@ With this project we intended to explore the use of [RESTdesc](http://restdesc.o
 Initially, we also wanted to explore how to use this space to discriminate the better path to achieve a goal when more than one where found by the reasoner.
 However, the time went by and a deadline made us present what we had at that moment (i.e. what this project contains).
 
-I am not sure whether we will resume this work, so I publish it just in case somebody out there finds it helpful for something (e.g. as an example of how to use _RESTdesc_).
+I am not sure whether we will resume this work, so I publish it just in case somebody out there finds it helpful for something.
 
 
 Directories
